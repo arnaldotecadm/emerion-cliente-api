@@ -3,7 +3,6 @@ br/com/arcasoftware/comercialapi/model/DashBoardClienteInfo.class
 br/com/arcasoftware/comercialapi/application/service/fin/FinCliService.class
 br/com/arcasoftware/comercialapi/application/repository/fin/FinCliRepository.class
 br/com/arcasoftware/comercialapi/application/config/DBSettings.class
-br/com/arcasoftware/comercialapi/application/service/CadastroAuxiliarService.class
 br/com/arcasoftware/comercialapi/model/DashBoardEnderecoCompleto.class
 br/com/arcasoftware/comercialapi/application/service/AreaClienteService.class
 br/com/arcasoftware/comercialapi/model/DashBoardCreditoDevolucao.class
@@ -27,7 +26,6 @@ br/com/arcasoftware/comercialapi/controller/fin/FinCliController.class
 br/com/arcasoftware/comercialapi/model/DashBoardEnderecoInfo.class
 br/com/arcasoftware/comercialapi/model/DashBoardClienteInfoCompleto.class
 br/com/arcasoftware/comercialapi/application/service/ReportService.class
-br/com/arcasoftware/comercialapi/application/repository/ped/PedLibRepository.class
 br/com/arcasoftware/comercialapi/application/exception/GlobalControllerExceptionHandler.class
 br/com/arcasoftware/comercialapi/model/DatasourceProperties.class
 br/com/arcasoftware/comercialapi/model/StringEntity.class
