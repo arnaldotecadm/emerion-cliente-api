@@ -1,5 +1,7 @@
 package br.com.arcasoftware.comercialapi;
 
+import br.com.arcasoftware.comercialapi.utils.ApplicationProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -14,6 +16,9 @@ import br.com.arcasoftwares.model.Pedres;
 @RestController
 @EnableCaching
 public class EmerionClienteApiApplication {
+
+	@Autowired
+	private ApplicationProperties properties;
 
 	public static void main(String[] args) {
 		SpringApplication.run(EmerionClienteApiApplication.class, args);

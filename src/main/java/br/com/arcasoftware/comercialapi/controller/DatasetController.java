@@ -4,6 +4,7 @@ import br.com.arcasoftware.comercialapi.application.config.RoutingDataSource;
 import br.com.arcasoftware.comercialapi.application.exception.ValidationException;
 import br.com.arcasoftware.comercialapi.model.DatasourceProperties;
 import br.com.arcasoftware.comercialapi.model.StringEntity;
+import br.com.arcasoftware.comercialapi.utils.ApplicationProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,12 +26,14 @@ public class DatasetController {
 
     public static final String DEFAULT = "default";
     private final RoutingDataSource routingDataSource;
+    private ApplicationProperties properties;
 
     private final Map<String, DatasourceProperties> datasourcePropertiesMap = new HashMap<>();
 
     @Autowired
-    public DatasetController(RoutingDataSource routingDataSource) {
+    public DatasetController(RoutingDataSource routingDataSource, ApplicationProperties properties) {
         this.routingDataSource = routingDataSource;
+        this.properties = properties;
     }
 
     @PostConstruct
@@ -40,13 +43,13 @@ public class DatasetController {
             DataSource ds = ((DataSource) routingDataSource.getDataSources().get(DEFAULT));
             connection = ds.getConnection();
             DatasourceProperties aDefault = new DatasourceProperties(
-                    "org.postgresql.Driver",
-                    "ec2-54-144-165-97.compute-1.amazonaws.com",
+                    properties.getDriverClassName(),
+                    properties.getHost(),
                     DEFAULT,
                     "5432",
-                    "dem69v7n1u2tu",
-                    "mqspzfxoxtyvgd",
-                    "4f88a5e13e4f918088a0b9852c3228094e27e8c3262cc395fcf556a8f8c4a301");
+                    properties.getDatabase(),
+                    properties.getUsername(),
+                    properties.getPassword());
             this.datasourcePropertiesMap.put(DEFAULT, aDefault);
             routingDataSource.addDataSource(DEFAULT, ds);
         } catch (Exception ex) {
