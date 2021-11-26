@@ -46,4 +46,5 @@ public class DataSourceConfig {
         routingDataSource.setDefaultTargetDataSource(defaultDataSource);
         return routingDataSource;
     }
+
 }
