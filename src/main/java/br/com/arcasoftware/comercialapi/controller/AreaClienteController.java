@@ -1,4 +1,4 @@
-package br.com.arcasoftware.comercialapi.controller.areacliente;
+package br.com.arcasoftware.comercialapi.controller;
 
 import br.com.arcasoftware.comercialapi.model.AreaClienteDashboard;
 import br.com.arcasoftware.comercialapi.model.DashBoardClienteInfo;

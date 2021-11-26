@@ -1,6 +1,6 @@
-package br.com.arcasoftware.comercialapi.controller.areacliente;
+package br.com.arcasoftware.comercialapi.controller;
 
-import br.com.arcasoftware.comercialapi.application.service.ped.PedResService;
+import br.com.arcasoftware.comercialapi.application.service.PedResService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.*;

@@ -1,4 +1,4 @@
-package br.com.arcasoftware.comercialapi.application.repository.fin;
+package br.com.arcasoftware.comercialapi.application.repository;
 
 import br.com.arcasoftwares.model.Fincli;
 import br.com.arcasoftwares.model.dto.IFinCliDTO;
