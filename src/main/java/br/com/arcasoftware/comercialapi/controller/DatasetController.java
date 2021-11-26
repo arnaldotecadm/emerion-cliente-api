@@ -1,4 +1,4 @@
-package br.com.arcasoftware.comercialapi.controller.datasource;
+package br.com.arcasoftware.comercialapi.controller;
 
 import br.com.arcasoftware.comercialapi.application.config.RoutingDataSource;
 import br.com.arcasoftware.comercialapi.application.exception.ValidationException;

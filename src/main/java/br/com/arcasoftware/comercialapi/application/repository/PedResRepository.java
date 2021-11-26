@@ -1,4 +1,4 @@
-package br.com.arcasoftware.comercialapi.application.repository.ped;
+package br.com.arcasoftware.comercialapi.application.repository;
 
 import br.com.arcasoftwares.model.Pedres;
 import br.com.arcasoftwares.model.dto.IPedResCab;

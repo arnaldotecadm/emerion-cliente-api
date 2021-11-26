@@ -1,6 +1,6 @@
-package br.com.arcasoftware.comercialapi.application.service.fin;
+package br.com.arcasoftware.comercialapi.application.service;
 
-import br.com.arcasoftware.comercialapi.application.repository.fin.FinCliRepository;
+import br.com.arcasoftware.comercialapi.application.repository.FinCliRepository;
 import br.com.arcasoftwares.model.dto.IFinCliDTO;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;

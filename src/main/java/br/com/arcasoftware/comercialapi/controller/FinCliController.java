@@ -1,6 +1,6 @@
-package br.com.arcasoftware.comercialapi.controller.fin;
+package br.com.arcasoftware.comercialapi.controller;
 
-import br.com.arcasoftware.comercialapi.application.service.fin.FinCliService;
+import br.com.arcasoftware.comercialapi.application.service.FinCliService;
 import br.com.arcasoftwares.model.dto.IFinCliDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

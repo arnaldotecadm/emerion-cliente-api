@@ -1,8 +1,8 @@
-package br.com.arcasoftware.comercialapi.controller.ped;
+package br.com.arcasoftware.comercialapi.controller;
 
 import br.com.arcasoftware.comercialapi.application.exception.ValidationException;
 import br.com.arcasoftware.comercialapi.application.service.ReportService;
-import br.com.arcasoftware.comercialapi.application.service.ped.PedResService;
+import br.com.arcasoftware.comercialapi.application.service.PedResService;
 import br.com.arcasoftware.comercialapi.model.ReportFull;
 import br.com.arcasoftwares.model.dto.*;
 import net.sf.jasperreports.engine.JRException;
