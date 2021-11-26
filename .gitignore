@@ -27,3 +27,5 @@
 /.nb-gradle/
 
 */target/**
+/target/
+/target/
