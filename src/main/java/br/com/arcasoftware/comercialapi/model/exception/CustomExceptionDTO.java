@@ -1,21 +1,10 @@
 package br.com.arcasoftware.comercialapi.model.exception;
 
-/**
- * Created by root on 05/12/16.
- */
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public class CustomExceptionDTO {
-
-    private String message;
-
-    public CustomExceptionDTO(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
+    private final String message;
 }
