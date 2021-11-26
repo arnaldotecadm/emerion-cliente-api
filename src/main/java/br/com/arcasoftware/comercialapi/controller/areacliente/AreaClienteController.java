@@ -1,10 +1,10 @@
-package br.com.arcasoftware.comercialapi.controller.areacliente.controller;
+package br.com.arcasoftware.comercialapi.controller.areacliente;
 
-import br.com.arcasoftware.comercialapi.controller.areacliente.model.AreaClienteDashboard;
-import br.com.arcasoftware.comercialapi.controller.areacliente.model.DashBoardClienteInfo;
-import br.com.arcasoftware.comercialapi.controller.areacliente.model.DashBoardCreditoInfo;
-import br.com.arcasoftware.comercialapi.controller.areacliente.model.DashBoardEnderecoInfo;
-import br.com.arcasoftware.comercialapi.controller.areacliente.service.AreaClienteService;
+import br.com.arcasoftware.comercialapi.model.AreaClienteDashboard;
+import br.com.arcasoftware.comercialapi.model.DashBoardClienteInfo;
+import br.com.arcasoftware.comercialapi.model.DashBoardCreditoInfo;
+import br.com.arcasoftware.comercialapi.model.DashBoardEnderecoInfo;
+import br.com.arcasoftware.comercialapi.application.service.AreaClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +29,6 @@ public class AreaClienteController {
         List<DashBoardEnderecoInfo> dashboardEnderecoInfo = this.service.getDashboardEnderecoInfo(codcli);
 
         return new AreaClienteDashboard(dashBoardClienteInfo, dashboardCreditoInfo, dashboardEnderecoInfo);
-
     }
 
     @GetMapping("endereco-cliente/{codcli}")

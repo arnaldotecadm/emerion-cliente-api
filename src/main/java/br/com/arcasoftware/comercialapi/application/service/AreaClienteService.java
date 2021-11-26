@@ -1,7 +1,7 @@
-package br.com.arcasoftware.comercialapi.controller.areacliente.service;
+package br.com.arcasoftware.comercialapi.application.service;
 
-import br.com.arcasoftware.comercialapi.controller.areacliente.model.*;
-import br.com.arcasoftware.comercialapi.controller.areacliente.repository.AreaClienteRepository;
+import br.com.arcasoftware.comercialapi.application.repository.AreaClienteRepository;
+import br.com.arcasoftware.comercialapi.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

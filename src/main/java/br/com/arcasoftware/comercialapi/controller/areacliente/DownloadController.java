@@ -1,4 +1,4 @@
-package br.com.arcasoftware.comercialapi.controller.areacliente.controller;
+package br.com.arcasoftware.comercialapi.controller.areacliente;
 
 import br.com.arcasoftware.comercialapi.application.service.ped.PedResService;
 import org.springframework.beans.factory.annotation.Autowired;

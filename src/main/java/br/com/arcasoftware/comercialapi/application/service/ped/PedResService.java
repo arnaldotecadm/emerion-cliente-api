@@ -1,14 +1,11 @@
 package br.com.arcasoftware.comercialapi.application.service.ped;
 
 import br.com.arcasoftware.comercialapi.application.repository.ped.PedResRepository;
-import br.com.arcasoftwares.model.Pedres;
-import br.com.arcasoftwares.model.dto.IPedRe2DTO;
-import br.com.arcasoftwares.model.dto.IPedResCab;
-import br.com.arcasoftwares.model.dto.IPedResDTO;
-import br.com.arcasoftwares.model.dto.PedResDTO;
+import br.com.arcasoftwares.model.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 
 @Service
@@ -25,10 +22,6 @@ public class PedResService {
         return repository.getCabecalhoPedidoList(recordCount);
     }
 
-    public List<IPedRe2DTO> getDetalhesPedido(String numres) {
-        return repository.getDetalhesPedido(numres);
-    }
-
     public IPedResCab getCabecalhoPedido(String numres) {
         return repository.getCabecalhoPedido(numres);
     }
@@ -41,13 +34,12 @@ public class PedResService {
         return this.repository.getNfePedido(numres);
     }
 
-    public List<Pedres> getByFilter(PedResDTO pedResDTO) {
-        return repository.findByFilters(
-                pedResDTO.getFinCliDTO() != null ? pedResDTO.getFinCliDTO().getCodcli() : null,
-                (pedResDTO.getFinCliDTO() != null && pedResDTO.getFinCliDTO().getNomcli() != null) ? pedResDTO.getFinCliDTO().getNomcli().toUpperCase() : null,
+    public IReportPedResHead getReportPedRes(Integer numres) {
+        return this.repository.getReportPedRes(numres);
+    }
 
-                pedResDTO.getNumres(),
-                pedResDTO.getSitres());
+    public List<IReportPedRe2Detail> getReportPedRe2(Integer codemp, Date dteres, Integer numres) {
+        return this.repository.getReportPedRe2(codemp, dteres, numres);
     }
 
 }

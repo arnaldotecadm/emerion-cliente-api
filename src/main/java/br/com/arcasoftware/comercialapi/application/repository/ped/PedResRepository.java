@@ -1,15 +1,15 @@
 package br.com.arcasoftware.comercialapi.application.repository.ped;
 
 import br.com.arcasoftwares.model.Pedres;
-import br.com.arcasoftwares.model.dto.*;
-import br.com.arcasoftwares.model.interfaces.ResumoPorSituacaoInterface;
+import br.com.arcasoftwares.model.dto.IPedResCab;
+import br.com.arcasoftwares.model.dto.IPedResDTO;
+import br.com.arcasoftwares.model.dto.IReportPedRe2Detail;
+import br.com.arcasoftwares.model.dto.IReportPedResHead;
 import br.com.arcasoftwares.model.primarykey.PedresPK;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.util.List;
@@ -19,27 +19,6 @@ public interface PedResRepository extends CrudRepository<Pedres, PedresPK> {
 
     @Query(nativeQuery = true, value = "select fat.arqnfe from FATPED fat where fat.numres = :numres")
     byte[] getNfePedido(Integer numres);
-
-    @Query(nativeQuery = true, value = "select" +
-            " res.numres," +
-            " res.codemp, (select nomemp from geremp emp where emp.codemp = res.codemp) as NOMEMP," +
-            " res.codcli, (select nomcli from fincli cli where cli.codcli = res.codcli) as NOMCLI," +
-            " res.dteres, res.cgccli, res.inscli, res.uferes," +
-            " res.codven, (select nomven from finven ven where ven.codven = res.codven) as NOMVEN," +
-            " res.totren," +
-            " res.codatd, (select nomatd from finatd atd where atd.codatd = res.codatd) as NOMATD," +
-            " res.ID_FRETE as IDFRETE," +
-            " (select descfrt from tipfrt frt where frt.id = res.ID_FRETE) as descfrt," +
-            " (select LimCli from fincli cli where cli.codcli = res.codcli) as LimCli," +
-            " (select DscPfa from EstPfa pfa where pfa.tippfa = 'Saida' and pfa.codpfa = res.codpfa) as DscPfa," +
-            " res.pedant, res.codpfa, res.PRFRES, res.DTFRES, res.DSCREG," +
-            " res.CODTCL, (select nomtcl from fintcl tcl where tcl.codtcl = res.codtcl) as nomtcl," +
-            " res.INDIC_CF as INDICCF, ( select tipo from indic_cf cf where cf.id = res.indic_cf) as nomindiccf," +
-            " res.DSCCOM, res.totliq, res.basicm, res.toticm, res.bassub, res.totsub, res.totpis, res.totres, res.totbrt, " +
-            " res.totfrt, res.totseg, res.totoutdesp, res.totdescinc, res.totcof, res.totger, res.totipi " +
-            " from pedres res " +
-            " where res.numres = :numres ")
-    IPedResInfoDTO getPedInfo(@Param("numres") Integer numres);
 
     @Query(nativeQuery = true, value = "select first :pRecordCount p.codcli, p.numres, p.codpfa, p.totger, p.totres, p.totren, p.fatger, p.devger, p.sldger, p.dteRes, p.dtfres,"
             + " p.uferes, p.flgimp, p.sitres, p.obsres, p.obspro, p.qtdimp, (select count(1) from pedre2 re2 where re2.numres = p.numres) as qtdItens,"
@@ -62,104 +41,9 @@ public interface PedResRepository extends CrudRepository<Pedres, PedresPK> {
             " where p.codcli = :codcli")
     List<IPedResDTO> getCabecalhoPedidoListByCodcli(Integer codcli);
 
-    @Query(nativeQuery = true, value = "select p.codcli, p.numres, p.codpfa, p.totger, p.totres, p.totren, p.fatger, p.devger, p.sldger, p.dteRes, p.dtfres,"
-            + " p.uferes, p.flgimp, p.sitres, p.obsres, p.obspro, p.qtdimp, (select count(1) from pedre2 re2 where re2.numres = p.numres) as qtdItens,"
-            + " (SELECT nomven FROM finven ven WHERE ven.codven = p.codven) AS nomVen,"
-            + " (SELECT nomatd FROM finatd atd WHERE atd.codatd = p.codatd) AS nomAtd, "
-            + " (SELECT nomcli FROM fincli cli WHERE cli.codcli = p.codcli) AS nomcli, " +
-            " case when fat.arqnfe is not null then 'SIM' else 'NAO' end as possuiNFe"
-            + " from Pedres p " +
-            " LEFT JOIN FATPED fat ON fat.numres = p.numres AND p.dteres = fat.dteres AND fat.CODEMP  = p.CODEMP " +
-            " where p.sitres = :sitres")
-    List<IPedResDTO> getCabecalhoPedidoListBySitres(String sitres);
-
-    @Query(nativeQuery = true, value = "SELECT re2.CODGRU || '.' || re2.CODSUB  || '.' || re2.CODPRO AS item,"
-            + "re2.DESRE2, re2.QTPRE2, re2.VLQRE2, re2.ICMRE2, re2.TOTRE2, re2.totren," +
-            " re2.BASICM, re2.TOTICM, re2.CODST1, re2.CODST2, re2.REDICM, " +
-            " re2.BASIPI, re2.IPIRE2, re2.TOTIPI, re2.CSTIPI, " +
-            " re2.TOTDSR, re2.TOTFRT, " +
-            " re2.BASSUB, re2.TOTSUB, re2.ICMSUB, re2.MRGSUB, re2.REDSUB," +
-            " re2.BASPIS, re2.ALIQPIS, re2.TOTPIS, re2.CSTPIS," +
-            " re2.BASCOF, re2.ALIQCOF, re2.TOTCOF, re2.CSTCOF," +
-            " (select totres from pedres res where res.numres = re2.numres) as totres," +
-            " (select TOTIPI from pedres res where res.numres = re2.numres) as TOTIPIPED," +
-            " (select TOTSUB from pedres res where res.numres = re2.numres) as TOTSUBPED," +
-            " (select TOTDESCINC from pedres res where res.numres = re2.numres) as TOTDESCINC," +
-            " (select totger from pedres res where res.numres = re2.numres) as totger," +
-            " (select TOTLIQ from pedres res where res.numres = re2.numres) as TOTLIQ," +
-            " (select TOTBRT from pedres res where res.numres = re2.numres) as TOTBRT"
-            + " FROM PEDRE2 re2"
-            + " where re2.numres = :numres")
-    List<IPedRe2DTO> getDetalhesPedido(@Param("numres") String numres);
-
     @Query(nativeQuery = true, value = "SELECT res.numres, res.TOTRES, res.TOTIPI, res.totsub, res.TOTDESCINC, res.totger, res.totren, res.codcli, res.obsres, res.pedant FROM pedres res where res.numres = :numres")
     IPedResCab getCabecalhoPedido(@Param("numres") String numres);
 
-    @Query(nativeQuery = true, value = "select first 1000 p.* from Pedres p")
-    List<Pedres> getAll();
-
-    @Query(value = "select p from Pedres p where p.id.numres = :numres")
-    Pedres getByNumres(Integer numres);
-
-    @Query(value = "select p from Pedres p where 1 = 1  " + " and (:codcli is null or p.fincli.codcli = :codcli) "
-            + " and (:nomcli is null or p.fincli.nomcli like %:nomcli%)"
-            + " and (:sitres is null or p.sitres like %:sitres%)"
-            + " and (:numres is null or p.id.numres = :numres)")
-    List<Pedres> findByFilters(Integer codcli, String nomcli, Integer numres,
-                               String sitres);
-
-    @Transactional
-    @Modifying
-    @Query(nativeQuery = true, value = "update Pedres p set sitres =:sitres where p.id.numres =:numres")
-    void updateStatus(@Param("numres") Integer numres, @Param("sitres") String sitres);
-
-    @Transactional
-    @Modifying
-    @Query(nativeQuery = true, value = "update Pedres p set sitres =:sitres, numres = :numres, obsrej =:obsrej where p.numres =:numres")
-    void rejeitarPedido(@Param("numres") Integer numres, @Param("sitres") String sitres,
-                        @Param("obsrej") String obsrej);
-
-    @Transactional
-    @Modifying
-    @Query( value = "update Pedres p set sitres = :sitres where p.id.numres = :numres")
-    void updateStatusPedidoSemObservacao(@Param("numres") Integer numres, @Param("sitres") String sitres);
-
-    @Transactional
-    @Modifying
-    @Query(value = "update Pedres p set sitres =:sitres, obspro =:obspro where p.id.numres =:numres")
-    void aprovarPeriodoProgramacao(@Param("numres") Integer numres, @Param("sitres") String sitres,
-                                   @Param("obspro") String obspro);
-
-    @Transactional
-    @Modifying
-    @Query(value = "update Pedres p set sitres =:sitres, obscom =:obscom where p.id.numres =:numres")
-    void aprovarLiberacaoDptoComercial(@Param("numres") Integer numres, @Param("sitres") String sitres,
-                                       @Param("obscom") String obscom);
-
-    @Transactional
-    @Modifying
-    @Query(value = "update Pedres p set sitres =:sitres, obscon =:obscon where p.id.numres =:numres")
-    void aprovarLiberacaoConsultaCadastro(@Param("numres") Integer numres, @Param("sitres") String sitres,
-                                          @Param("obscon") String obscon);
-
-    @Transactional
-    @Modifying
-    @Query(value = "update Pedres p set sitres =:sitres, obsfin =:obsfin where p.id.numres =:numres")
-    void aprovarLiberacaoDptoFinanceiro(@Param("numres") Integer numres, @Param("sitres") String sitres,
-                                          @Param("obsfin") String obsfin);
-
-    @Transactional
-    @Modifying
-    @Query(nativeQuery = true, value = "update Pedres p set sitres =:sitres, obsant =:obs where numres =:numres")
-    void aprovarConfirmacaoPagamento(@Param("numres") Integer numres, @Param("sitres") String sitres, @Param("obs") String obs);
-
-    List<Pedres> findBySitres(String sitres);
-
-    List<Pedres> findByCodcli(Integer codcli);
-
-    @Query(nativeQuery = true, value = "select count(1) as qtd, p.sitres, sum(p.totger) as totger from portal.pedres p \r\n"
-            + "group by p.sitres order by 2")
-    List<ResumoPorSituacaoInterface> getResumoPorSituacao();
 
     @Query(nativeQuery = true, value = "" +
             "SELECT\n" +

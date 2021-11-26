@@ -1,4 +1,4 @@
-package br.com.arcasoftware.comercialapi.controller.areacliente.model;
+package br.com.arcasoftware.comercialapi.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

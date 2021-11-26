@@ -1,6 +1,6 @@
-package br.com.arcasoftware.comercialapi.controller.areacliente.repository;
+package br.com.arcasoftware.comercialapi.application.repository;
 
-import br.com.arcasoftware.comercialapi.controller.areacliente.model.*;
+import br.com.arcasoftware.comercialapi.model.*;
 import br.com.arcasoftwares.model.Fincli;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
