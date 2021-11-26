@@ -12,6 +12,4 @@ public interface FinCliRepository extends PagingAndSortingRepository<Fincli, Int
     @Query(nativeQuery = true, value = "select c.codcli, c.nomcli, c.cgccli, c.cifcli, c.uffcli, c.codven, c.cnae  from Fincli c ")
     List<IFinCliDTO> getAllDTO();
 
-    @Query(value = "select c from Fincli c where 1 = 1 and (:codcli is null or c.codcli = :codcli) and (:nomcli is null or c.nomcli like %:nomcli%)")
-    List<Fincli> getByCodcliAndNomcli(Integer codcli, String nomcli);
 }

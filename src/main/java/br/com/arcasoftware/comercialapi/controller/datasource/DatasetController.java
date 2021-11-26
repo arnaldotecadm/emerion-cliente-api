@@ -2,13 +2,9 @@ package br.com.arcasoftware.comercialapi.controller.datasource;
 
 import br.com.arcasoftware.comercialapi.application.config.RoutingDataSource;
 import br.com.arcasoftware.comercialapi.application.exception.ValidationException;
+import br.com.arcasoftware.comercialapi.model.DatasourceProperties;
 import br.com.arcasoftware.comercialapi.model.StringEntity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -43,8 +39,6 @@ public class DatasetController {
         try {
             DataSource ds = ((DataSource) routingDataSource.getDataSources().get(DEFAULT));
             connection = ds.getConnection();
-            String url = connection.getMetaData().getURL();
-            String[] split = url.split("//");
             DatasourceProperties aDefault = new DatasourceProperties(
                     "org.postgresql.Driver",
                     "ec2-54-144-165-97.compute-1.amazonaws.com",
@@ -55,10 +49,10 @@ public class DatasetController {
                     "4f88a5e13e4f918088a0b9852c3228094e27e8c3262cc395fcf556a8f8c4a301");
             this.datasourcePropertiesMap.put(DEFAULT, aDefault);
             routingDataSource.addDataSource(DEFAULT, ds);
-        } catch (Exception ex){
+        } catch (Exception ex) {
             throw new ValidationException("Erro ao tentar adquirir os detalhes da conexao: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         } finally {
-            if(null != connection){
+            if (null != connection) {
                 connection.close();
             }
         }
@@ -75,12 +69,12 @@ public class DatasetController {
     public ResponseEntity<StringEntity> changeDataSource(@PathVariable("alias") String alias) {
         DatasourceProperties ds = this.datasourcePropertiesMap.get(alias);
 
-        if(null == ds) {
+        if (null == ds) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new StringEntity("Datasource nao encotrado"));
         }
 
         try {
-            ((DataSource)this.routingDataSource.getDataSources().get(alias)).getConnection();
+            ((DataSource) this.routingDataSource.getDataSources().get(alias)).getConnection();
             this.routingDataSource.setKey(alias);
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new StringEntity("Erro ao tentar carregar a conexão desejada: " + ex.getMessage()));
@@ -90,17 +84,17 @@ public class DatasetController {
     }
 
     @GetMapping()
-    public ResponseEntity<Collection<DatasourceProperties>> getAll(){
+    public ResponseEntity<Collection<DatasourceProperties>> getAll() {
         return ResponseEntity.ok(this.datasourcePropertiesMap.values());
     }
 
     @GetMapping("current-alias")
-    public ResponseEntity<DatasourceProperties> getCurrentDatasource(){
+    public ResponseEntity<DatasourceProperties> getCurrentDatasource() {
         return ResponseEntity.ok(this.datasourcePropertiesMap.get(this.routingDataSource.getKey()));
     }
 
     @GetMapping("/{alias}")
-    public ResponseEntity<DatasourceProperties> getByAlias(@PathVariable("alias") String alias){
+    public ResponseEntity<DatasourceProperties> getByAlias(@PathVariable("alias") String alias) {
         return ResponseEntity.ok(this.datasourcePropertiesMap.get(alias));
     }
 
@@ -115,17 +109,4 @@ public class DatasetController {
         dataSource.setPassword(datasourceProperties.getPassword());
         return dataSource;
     }
-}
-
-@AllArgsConstructor
-@Getter
-@Setter
-class DatasourceProperties {
-    private String driver;
-    private String host;
-    private String alias;
-    private String port;
-    private String url;
-    private String username;
-    private String password;
 }

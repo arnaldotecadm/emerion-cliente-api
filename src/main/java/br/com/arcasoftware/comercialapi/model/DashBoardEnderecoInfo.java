@@ -1,4 +1,4 @@
-package br.com.arcasoftware.comercialapi.controller.areacliente.model;
+package br.com.arcasoftware.comercialapi.model;
 
 public interface DashBoardEnderecoInfo {
     String getTipo();

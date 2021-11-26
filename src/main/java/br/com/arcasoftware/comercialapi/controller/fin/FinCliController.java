@@ -1,25 +1,30 @@
 package br.com.arcasoftware.comercialapi.controller.fin;
 
 import br.com.arcasoftware.comercialapi.application.service.fin.FinCliService;
-import br.com.arcasoftware.comercialapi.controller.generics.RestBasicController;
-import br.com.arcasoftwares.model.Fincli;
 import br.com.arcasoftwares.model.dto.IFinCliDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "fincli")
 @CrossOrigin("*")
-public class FinCliController extends RestBasicController<Fincli, IFinCliDTO> {
+public class FinCliController {
 
     private final FinCliService service;
 
     @Autowired
     public FinCliController(FinCliService service) {
-        super(service);
         this.service = service;
+    }
+
+    @GetMapping(value = {"", "all"})
+    public List<IFinCliDTO> getAllDTO() {
+        return this.service.getAllDTO();
     }
 
 }

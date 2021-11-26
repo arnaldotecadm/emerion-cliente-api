@@ -1,4 +1,4 @@
-package br.com.arcasoftware.comercialapi.controller.areacliente.model;
+package br.com.arcasoftware.comercialapi.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
