@@ -1,10 +1,8 @@
-/usr/local/personal/workspace/java/emerion-cliente-api/src/main/java/br/com/arcasoftware/comercialapi/application/service/CadastroAuxiliarService.java
 /usr/local/personal/workspace/java/emerion-cliente-api/src/main/java/br/com/arcasoftware/comercialapi/controller/ped/PedResController.java
 /usr/local/personal/workspace/java/emerion-cliente-api/src/main/java/br/com/arcasoftware/comercialapi/model/AreaClienteDashboard.java
 /usr/local/personal/workspace/java/emerion-cliente-api/src/main/java/br/com/arcasoftware/comercialapi/model/DashBoardEnderecoInfo.java
 /usr/local/personal/workspace/java/emerion-cliente-api/src/main/java/br/com/arcasoftware/comercialapi/model/DashBoardCreditoInfo.java
 /usr/local/personal/workspace/java/emerion-cliente-api/src/main/java/br/com/arcasoftware/comercialapi/controller/fin/FinCliController.java
-/usr/local/personal/workspace/java/emerion-cliente-api/src/main/java/br/com/arcasoftware/comercialapi/application/repository/ped/PedLibRepository.java
 /usr/local/personal/workspace/java/emerion-cliente-api/src/main/java/br/com/arcasoftware/comercialapi/application/service/ReportService.java
 /usr/local/personal/workspace/java/emerion-cliente-api/src/main/java/br/com/arcasoftware/comercialapi/model/DashBoardEnderecoCompleto.java
 /usr/local/personal/workspace/java/emerion-cliente-api/src/main/java/br/com/arcasoftware/comercialapi/application/config/RoutingDataSource.java
