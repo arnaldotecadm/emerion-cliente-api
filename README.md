@@ -1,4 +1,4 @@
-##Rodar Localmente o Projeto
+##Para rodar Localmente o Projeto
 para rodar localmente o projeto, deve ser alterado o arquivo de propriedades com as informações conexão ou podem ser passadas atraves de VM options.
 Ex:
 -Dspring.datasource.url=jdbc:firebirdsql://seuIp:suaPorta/caminhoParaSeuBanco.fdb
