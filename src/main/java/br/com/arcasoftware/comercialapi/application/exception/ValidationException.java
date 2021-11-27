@@ -1,25 +1,19 @@
 package br.com.arcasoftware.comercialapi.application.exception;
 
-import br.com.arcasoftware.comercialapi.application.enums.EnumException;
 import org.springframework.http.HttpStatus;
 
 /**
  * Validation exceptions. Exceptions related to server-side verifications (i.e. user not found (404 - NOT_FOUND), etc).
  */
-public class ValidationException extends RuntimeException{
+public class ValidationException extends RuntimeException {
 
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 5957756808614122964L;
-	
-	private final HttpStatus httpStatus;
-    private final String description;
+     *
+     */
+    private static final long serialVersionUID = 5957756808614122964L;
 
-    public ValidationException(EnumException exceptionEnum) {
-        this.description = exceptionEnum.getDescription();
-        this.httpStatus = exceptionEnum.getHttpStatus();
-    }
+    private final HttpStatus httpStatus;
+    private final String description;
 
     public ValidationException(String description, HttpStatus httpStatus) {
         this.description = description;
