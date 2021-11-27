@@ -1,4 +1,5 @@
 package br.com.arcasoftware.comercialapi.application.config;
+import br.com.arcasoftware.comercialapi.utils.ApplicationProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,17 +13,11 @@ import javax.sql.DataSource;
 @Configuration
 public class DataSourceConfig {
 
-    @Value("${spring.datasource.username}")
-    private String username;
+    private ApplicationProperties properties;
 
-    @Value("${spring.datasource.password}")
-    private String password;
-
-    @Value("${spring.datasource.driverClassName}")
-    private String driverClassName;
-
-    @Value("${spring.datasource.url}")
-    private String dataSourceUrl;
+    public DataSourceConfig(ApplicationProperties properties){
+        this.properties = properties;
+    }
 
     @Bean
     @Qualifier("default")
@@ -30,10 +25,10 @@ public class DataSourceConfig {
     protected DataSource defaultDataSource(){
         return DataSourceBuilder
                 .create()
-                .url(this.dataSourceUrl)
-                .username(this.username)
-                .password(this.password)
-                .driverClassName(this.driverClassName)
+                .url(this.properties.getUrl())
+                .username(this.properties.getUsername())
+                .password(this.properties.getPassword())
+                .driverClassName(this.properties.getDriverClassName())
                 .build();
     }
 
