@@ -191,22 +191,22 @@ public interface PedResRepository extends CrudRepository<Pedres, PedresPK> {
             "\n" +
             "FROM PEDRE2 PE2\n" +
             "\n" +
-            "join EstQte QTE on QTE.CodClp = PedRe2.CodClp\n" +
-            "     and QTE.CodGru = PedRe2.CodGru\n" +
-            "     and QTE.CodSub = PedRe2.CodSub\n" +
-            "     and QTE.CodPro = PedRe2.CodPro\n" +
-            "     and QTE.CodTam = PedRe2.CodTam\n" +
-            "     and QTE.CodCor = PedRe2.CodCor\n" +
-            "     and QTE.CodEmp = PedRe2.CodEmp\n" +
-            "join EstPro on EstPro.CodClp = PedRe2.CodClp\n" +
-            "     and EstPro.CodGru = PedRe2.CodGru\n" +
-            "     and EstPro.CodSub = PedRe2.CodSub\n" +
-            "     and EstPro.CodPro = PedRe2.CodPro\n" +
+            "join EstQte QTE on QTE.CodClp = PE2.CodClp\n" +
+            "     and QTE.CodGru = PE2.CodGru\n" +
+            "     and QTE.CodSub = PE2.CodSub\n" +
+            "     and QTE.CodPro = PE2.CodPro\n" +
+            "     and QTE.CodTam = PE2.CodTam\n" +
+            "     and QTE.CodCor = PE2.CodCor\n" +
+            "     and QTE.CodEmp = PE2.CodEmp\n" +
+            "join EstPro on EstPro.CodClp = PE2.CodClp\n" +
+            "     and EstPro.CodGru = PE2.CodGru\n" +
+            "     and EstPro.CodSub = PE2.CodSub\n" +
+            "     and EstPro.CodPro = PE2.CodPro\n" +
             "left join estmrc on estmrc.codmrc = estpro.codmrc\n" +
-            "     Where PedRe2.CodEmp = :codemp\n" +
-            "     and PedRe2.DteRes = :dteres\n" +
-            "     and PedRe2.NumRes = :numres\n" +
-            "     and (QTE.QtdQte - ((SELECT QTD_RESERVADA FROM RESERVAS(QTE.CODEMP,QTE.CODCLP,QTE.CODGRU,QTE.CODSUB,QTE.CODPRO)) + QTE.QtdRma)) < 0\n" +
+            "     Where PE2.CodEmp = :codemp\n" +
+            "     and PE2.DteRes = :dteres\n" +
+            "     and PE2.NumRes = :numres\n" +
+            "     and (QTE.QtdQte - ((0) + QTE.QtdRma)) < 0\n" +
             "\n" +
             "union all\n" +
             "\n" +
@@ -255,22 +255,22 @@ public interface PedResRepository extends CrudRepository<Pedres, PedresPK> {
             "\n" +
             "FROM PEDRE2 PE2\n" +
             "\n" +
-            "join EstQte QTE on QTE.CodClp = PedRe2.CodClp\n" +
-            "     and QTE.CodGru = PedRe2.CodGru\n" +
-            "     and QTE.CodSub = PedRe2.CodSub\n" +
-            "     and QTE.CodPro = PedRe2.CodPro\n" +
-            "     and QTE.CodTam = PedRe2.CodTam\n" +
-            "     and QTE.CodCor = PedRe2.CodCor\n" +
-            "     and QTE.CodEmp = PedRe2.CodEmp\n" +
-            "join EstPro on EstPro.CodClp = PedRe2.CodClp\n" +
-            "     and EstPro.CodGru = PedRe2.CodGru\n" +
-            "     and EstPro.CodSub = PedRe2.CodSub\n" +
-            "     and EstPro.CodPro = PedRe2.CodPro\n" +
+            "join EstQte QTE on QTE.CodClp = PE2.CodClp\n" +
+            "     and QTE.CodGru = PE2.CodGru\n" +
+            "     and QTE.CodSub = PE2.CodSub\n" +
+            "     and QTE.CodPro = PE2.CodPro\n" +
+            "     and QTE.CodTam = PE2.CodTam\n" +
+            "     and QTE.CodCor = PE2.CodCor\n" +
+            "     and QTE.CodEmp = PE2.CodEmp\n" +
+            "join EstPro on EstPro.CodClp = PE2.CodClp\n" +
+            "     and EstPro.CodGru = PE2.CodGru\n" +
+            "     and EstPro.CodSub = PE2.CodSub\n" +
+            "     and EstPro.CodPro = PE2.CodPro\n" +
             "left join estmrc on estmrc.codmrc = estpro.codmrc\n" +
-            "     Where PedRe2.CodEmp = :codemp\n" +
-            "     and PedRe2.DteRes = :dteres\n" +
-            "     and PedRe2.NumRes = :numres\n" +
-            "     and (QTE.QtdQte - ((SELECT QTD_RESERVADA FROM RESERVAS(QTE.CODEMP,QTE.CODCLP,QTE.CODGRU,QTE.CODSUB,QTE.CODPRO)) + QTE.QtdRma)) >= 0\n" +
+            "     Where PE2.CodEmp = :codemp\n" +
+            "     and PE2.DteRes = :dteres\n" +
+            "     and PE2.NumRes = :numres\n" +
+            "     and (QTE.QtdQte - ((0) + QTE.QtdRma)) >= 0\n" +
             "--ORDER BY 42 ASC")
     List<IReportPedRe2Detail> getReportPedRe2(@Param("codemp") Integer codemp, @Param("dteres") Date dteres, @Param("numres") Integer numres);
 

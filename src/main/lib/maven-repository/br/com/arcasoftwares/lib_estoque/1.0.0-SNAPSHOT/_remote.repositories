@@ -1,4 +1,6 @@
 #NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Sun Jul 25 15:04:02 WEST 2021
+#Fri Dec 31 13:52:18 WET 2021
 lib_estoque-1.0.0-SNAPSHOT.pom>=
+lib_estoque-1.0.0-SNAPSHOT.pom>maven-repository=
+lib_estoque-1.0.0-SNAPSHOT.jar>maven-repository=
 lib_estoque-1.0.0-SNAPSHOT.jar>=
