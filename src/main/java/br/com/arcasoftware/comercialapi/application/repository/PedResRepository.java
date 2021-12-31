@@ -1,10 +1,7 @@
 package br.com.arcasoftware.comercialapi.application.repository;
 
 import br.com.arcasoftwares.model.Pedres;
-import br.com.arcasoftwares.model.dto.IPedResCab;
-import br.com.arcasoftwares.model.dto.IPedResDTO;
-import br.com.arcasoftwares.model.dto.IReportPedRe2Detail;
-import br.com.arcasoftwares.model.dto.IReportPedResHead;
+import br.com.arcasoftwares.model.dto.*;
 import br.com.arcasoftwares.model.primarykey.PedresPK;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -35,14 +32,14 @@ public interface PedResRepository extends CrudRepository<Pedres, PedresPK> {
             + " (SELECT nomven FROM finven ven WHERE ven.codven = p.codven) AS nomVen,"
             + " (SELECT nomatd FROM finatd atd WHERE atd.codatd = p.codatd) AS nomAtd, "
             + " (SELECT nomcli FROM fincli cli WHERE cli.codcli = p.codcli) AS nomcli, " +
-            " case when fat.arqnfe is not null then 'SIM' else 'NAO' end as possuiNFe"
+            " 'NAO' as possuiNFe"
             + " from Pedres p " +
-            " LEFT JOIN FATPED fat ON fat.numres = p.numres AND p.dteres = fat.dteres AND fat.CODEMP  = p.CODEMP " +
+            //" LEFT JOIN FATPED fat ON fat.numres = p.numres AND p.dteres = fat.dteres AND fat.CODEMP  = p.CODEMP " +
             " where p.codcli = :codcli")
     List<IPedResDTO> getCabecalhoPedidoListByCodcli(Integer codcli);
 
     @Query(nativeQuery = true, value = "SELECT res.numres, res.TOTRES, res.TOTIPI, res.totsub, res.TOTDESCINC, res.totger, res.totren, res.codcli, res.obsres, res.pedant FROM pedres res where res.numres = :numres")
-    IPedResCab getCabecalhoPedido(@Param("numres") String numres);
+    IPedResCab getCabecalhoPedido(@Param("numres") int numres);
 
 
     @Query(nativeQuery = true, value = "" +
@@ -276,4 +273,24 @@ public interface PedResRepository extends CrudRepository<Pedres, PedresPK> {
             "     and (QTE.QtdQte - ((SELECT QTD_RESERVADA FROM RESERVAS(QTE.CODEMP,QTE.CODCLP,QTE.CODGRU,QTE.CODSUB,QTE.CODPRO)) + QTE.QtdRma)) >= 0\n" +
             "--ORDER BY 42 ASC")
     List<IReportPedRe2Detail> getReportPedRe2(@Param("codemp") Integer codemp, @Param("dteres") Date dteres, @Param("numres") Integer numres);
+
+
+    @Query(nativeQuery = true, value = "SELECT re2.CODGRU || '.' || re2.CODSUB  || '.' || re2.CODPRO AS item,"
+            + "re2.DESRE2, re2.QTPRE2, re2.VLQRE2, re2.ICMRE2, re2.TOTRE2, re2.totren," +
+            " re2.BASICM, re2.TOTICM, re2.CODST1, re2.CODST2, re2.REDICM, " +
+            " re2.BASIPI, re2.IPIRE2, re2.TOTIPI, re2.CSTIPI, " +
+            " re2.TOTDSR, re2.TOTFRT, " +
+            " re2.BASSUB, re2.TOTSUB, re2.ICMSUB, re2.MRGSUB, re2.REDSUB," +
+            " re2.BASPIS, re2.ALIQPIS, re2.TOTPIS, re2.CSTPIS," +
+            " re2.BASCOF, re2.ALIQCOF, re2.TOTCOF, re2.CSTCOF," +
+            " (select totres from pedres res where res.numres = re2.numres) as totres," +
+            " (select TOTIPI from pedres res where res.numres = re2.numres) as TOTIPIPED," +
+            " (select TOTSUB from pedres res where res.numres = re2.numres) as TOTSUBPED," +
+            " (select TOTDESCINC from pedres res where res.numres = re2.numres) as TOTDESCINC," +
+            " (select totger from pedres res where res.numres = re2.numres) as totger," +
+            " (select TOTLIQ from pedres res where res.numres = re2.numres) as TOTLIQ," +
+            " (select TOTBRT from pedres res where res.numres = re2.numres) as TOTBRT"
+            + " FROM PEDRE2 re2"
+            + " where re2.numres = :numres")
+    List<IPedRe2DTO> getDetalhesPedido(@Param("numres") int numres);
 }

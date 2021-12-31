@@ -27,7 +27,7 @@ public interface AreaClienteRepository extends PagingAndSortingRepository<Fincli
             "\t\tCASE \n" +
             "\t\tWHEN cde.USACDE <= 0\n" +
             "\t\tTHEN cde.VALCDE \n" +
-            "\t\tELSE '-' || cde.USACDE \n" +
+            "\t\tELSE cde.USACDE \n" +
             "\tEND AS valor\n" +
             "From FinCde cde\n" +
             "Where" +

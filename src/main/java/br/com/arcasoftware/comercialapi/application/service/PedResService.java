@@ -22,7 +22,7 @@ public class PedResService {
         return repository.getCabecalhoPedidoList(recordCount);
     }
 
-    public IPedResCab getCabecalhoPedido(String numres) {
+    public IPedResCab getCabecalhoPedido(int numres) {
         return repository.getCabecalhoPedido(numres);
     }
 
@@ -40,6 +40,10 @@ public class PedResService {
 
     public List<IReportPedRe2Detail> getReportPedRe2(Integer codemp, Date dteres, Integer numres) {
         return this.repository.getReportPedRe2(codemp, dteres, numres);
+    }
+
+    public List<IPedRe2DTO> getDetalhesPedido(int numres) {
+        return repository.getDetalhesPedido(numres);
     }
 
 }
