@@ -48,7 +48,6 @@
 				<sonar.host.url>
 					http://localhost:9000
 				</sonar.host.url>
-				<sonar.login>59366ca3a176fd316577cd86b0ea883c672bf5b6</sonar.login>
 			</properties>
 		</profile>
 	</profiles>
