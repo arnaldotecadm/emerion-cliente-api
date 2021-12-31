@@ -48,8 +48,13 @@ public class PedResController {
     }
 
     @GetMapping(value = {"cabecalho-pedido/{numres}"})
-    public IPedResCab getCabecalhoPedido(@PathVariable("numres") String numres) {
+    public IPedResCab getCabecalhoPedido(@PathVariable("numres") int numres) {
         return service.getCabecalhoPedido(numres);
+    }
+
+    @GetMapping(value = {"detalhe-pedido/{numres}"})
+    public List<IPedRe2DTO> getDetalhesPedido(@PathVariable("numres") int numres) {
+        return service.getDetalhesPedido(numres);
     }
 
     @GetMapping(path = "impressao_pedido/{codemp}/{dteres}/{numres}")
