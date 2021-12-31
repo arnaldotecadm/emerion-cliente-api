@@ -191,7 +191,7 @@
     <repositories>
         <repository>
             <id>maven-repository</id>
-            <url>file:///${project.basedir}/src/main/lib/maven-repository</url>
+            <url>file:///${project.basedir}/src/main/lib/maven-repository/repository</url>
         </repository>
     </repositories>
 
