@@ -23,11 +23,11 @@
 	<field name="pedres.CODCLI" class="java.lang.Integer"/>
 	<field name="pedres.NOMCLI" class="java.lang.String"/>
 	<field name="pedres.ENDENT" class="java.lang.String"/>
-	<field name="pedres.DTERES" class="java.sql.Timestamp"/>
+	<field name="pedres.DTERES" class="java.util.Date"/>
 	<field name="pedres.APEVEN" class="java.lang.String"/>
 	<field name="pedres.CGCEMP" class="java.lang.String"/>
 	<field name="pedres.INSEMP" class="java.lang.String"/>
-	<field name="pedres.DTFRES" class="java.sql.Timestamp"/>
+	<field name="pedres.DTFRES" class="java.util.Date"/>
 	<field name="pedres.DESCFRT" class="java.lang.String"/>
 	<field name="pedres.TELEFONE" class="java.lang.String"/>
 	<field name="pedres.EMAVEN" class="java.lang.String"/>
@@ -94,7 +94,7 @@
 				<textFieldExpression><![CDATA[$F{pedres.EMAEMP}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="99" width="330" height="17" uuid="9e38c9c1-fcf0-4c18-9d17-ebbf5385e992">
+				<reportElement x="0" y="99" width="450" height="17" uuid="9e38c9c1-fcf0-4c18-9d17-ebbf5385e992">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -166,7 +166,7 @@
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["CPF/CNPJ: "]]></textFieldExpression>
+				<textFieldExpression><![CDATA["CPF/CNPJ: " + $F{pedres.CGCCLI}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="380" y="130" width="70" height="15" uuid="2c4d10a0-67c3-46db-ba57-4f591c7fcf45">
@@ -186,7 +186,7 @@
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Inscrição Estadual: "]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Inscrição Estadual: " + $F{pedres.INSCLI}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="630" y="130" width="24" height="15" uuid="3d450d43-af7a-47fe-bfbc-5b78894ff6cc">
@@ -367,7 +367,7 @@
 				<textFieldExpression><![CDATA[$F{pedres.CIDTRA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="151" width="70" height="15" uuid="1bc6deb7-1b97-48f6-8941-6a31f43e8304">
+				<reportElement x="0" y="151" width="100" height="15" uuid="1bc6deb7-1b97-48f6-8941-6a31f43e8304">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -387,7 +387,7 @@
 				<textFieldExpression><![CDATA["Entrega: "]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="70" y="151" width="260" height="15" uuid="f46a27a8-532e-43db-a7c7-e2d6f3a57ae0">
+				<reportElement x="80" y="151" width="260" height="15" uuid="f46a27a8-532e-43db-a7c7-e2d6f3a57ae0">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>

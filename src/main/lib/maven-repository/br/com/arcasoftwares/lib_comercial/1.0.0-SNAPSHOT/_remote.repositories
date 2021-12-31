@@ -1,4 +1,6 @@
 #NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Sun Jul 25 15:03:51 WEST 2021
+#Fri Dec 31 13:53:03 WET 2021
 lib_comercial-1.0.0-SNAPSHOT.pom>=
+lib_comercial-1.0.0-SNAPSHOT.jar>maven-repository=
+lib_comercial-1.0.0-SNAPSHOT.pom>maven-repository=
 lib_comercial-1.0.0-SNAPSHOT.jar>=
