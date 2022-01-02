@@ -1,6 +1,6 @@
 package br.com.arcasoftware.comercialapi.model;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public interface DashBoardClienteInfoCompleto {
 
@@ -14,7 +14,7 @@ public interface DashBoardClienteInfoCompleto {
 
     String getCGCCLI();
 
-    LocalDateTime getDTNCLI();
+    Date getDTNCLI();
 
     String getINSCLI();
 
@@ -22,7 +22,7 @@ public interface DashBoardClienteInfoCompleto {
 
     String getNOMREGTRIB();
 
-    String getinscMunicipal();
+    String getInscMunicipal();
 
     String getCNAE();
 

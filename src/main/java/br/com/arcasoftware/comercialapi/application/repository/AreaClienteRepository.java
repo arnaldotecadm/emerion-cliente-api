@@ -58,7 +58,7 @@ public interface AreaClienteRepository extends PagingAndSortingRepository<Fincli
     List<DashBoardEnderecoCompleto> getDashboardEnderecoCompleto(@Param("codcli") Integer codcli);
 
     @Query(nativeQuery = true, value = "SELECT \n" +
-            "\t codcli, apecli, nomcli, INDIC_ESTRANGEIRO, cgccli, dtncli, inscli, tii.TIPO, f.NOMREGTRIB, INSC_MUNICIPAL, CNAE, obscli\n" +
+            "\t codcli, apecli, nomcli, INDIC_ESTRANGEIRO as indicEstrangeiro, cgccli, dtncli, inscli, tii.TIPO, f.NOMREGTRIB, INSC_MUNICIPAL as inscMunicipal, CNAE, obscli\n" +
             "FROM fincli cli \n" +
             "LEFT JOIN TIP_INDIC_IE tii ON tii.ID = cli.INDIC_IE \n" +
             "LEFT JOIN FINREGTRIB f ON f.NUMREGTRIB = cli.REGTRB \n" +

@@ -5,7 +5,7 @@
 	<groupId>br.com.emerion</groupId>
 	<artifactId>emerionCommon</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>EemrionCommon</name>
+	<name>EmerionCommon</name>
 	<description>Biblioteca comum para ser utilizada nos projetos Emerion; Contém os models e enums necessarios para a tranferência e armazenamento de dados.	</description>
 
 	<properties>
@@ -32,7 +32,6 @@
 				<sonar.host.url>
 					http://localhost:9000
 				</sonar.host.url>
-				<sonar.login>59366ca3a176fd316577cd86b0ea883c672bf5b6</sonar.login>
 			</properties>
 		</profile>
 	</profiles>
