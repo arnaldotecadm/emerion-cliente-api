@@ -104,6 +104,8 @@
             <groupId>br.com.arcasoftwares</groupId>
             <artifactId>lib_comercial</artifactId>
             <version>1.0.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/dependencies/lib_comercial-1.0.0-SNAPSHOT.jar</systemPath>
         </dependency>
 
         <dependency>
