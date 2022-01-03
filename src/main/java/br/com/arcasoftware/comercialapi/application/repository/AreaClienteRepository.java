@@ -66,7 +66,7 @@ public interface AreaClienteRepository extends PagingAndSortingRepository<Fincli
     DashBoardClienteInfoCompleto getDashboardClienteInfoCompleto(@Param("codcli") Integer codcli);
 
     @Query(nativeQuery = true, value = "SELECT \n" +
-            "\tseqcde, valcde, usacde, sldcde, dteped, obscde, sitcde, \tCASE \n" +
+            "\tseqcde, valcde, usacde, sldcde, dteped, obscde, dtecde, sitcde, \tCASE \n" +
             "\t\tWHEN cde.USACDE <= 0\n" +
             "\t\tTHEN 'ENTRADA'\n" +
             "\t\tELSE 'SAIDA'\n" +
