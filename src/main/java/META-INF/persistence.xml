@@ -6,6 +6,6 @@
 	<persistence-unit name="comercial_api">
 		<class>br.com.arcasoftwares.model.Pedres</class>
 		<class>br.com.arcasoftwares.model.Pedlib</class>
-        <class>br.com.asoft.transparency.model.nfe.BaseEntity</class>
+        <class>br.com.asoft.nfereader.model.nfe.BaseEntity</class>
     </persistence-unit>
 </persistence>
