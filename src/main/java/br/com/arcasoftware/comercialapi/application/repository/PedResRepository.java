@@ -1,12 +1,11 @@
 package br.com.arcasoftware.comercialapi.application.repository;
 
+import br.com.arcasoftware.comercialapi.application.repository.model.ClienteDocument;
 import br.com.arcasoftware.comercialapi.model.IPedRe2DTO;
 import br.com.arcasoftware.comercialapi.model.IPedResCab;
 import br.com.arcasoftware.comercialapi.model.IPedResDTO;
 import br.com.arcasoftware.comercialapi.model.IReportPedRe2Detail;
 import br.com.arcasoftware.comercialapi.model.IReportPedResHead;
-import br.com.arcasoftware.comercialapi.model.Pedres;
-import br.com.arcasoftware.comercialapi.model.PedresPK;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -16,7 +15,7 @@ import java.sql.Date;
 import java.util.List;
 
 @Repository
-public interface PedResRepository extends CrudRepository<Pedres, PedresPK> {
+public interface PedResRepository extends CrudRepository<ClienteDocument, Long> {
 
     @Query(nativeQuery = true, value = "select fat.arqnfe from FATPED fat where fat.numres = :numres")
     byte[] getNfePedido(Integer numres);

@@ -1,6 +1,6 @@
 package br.com.arcasoftware.comercialapi;
 
-import br.com.arcasoftware.comercialapi.model.Pedres;
+import br.com.arcasoftware.comercialapi.application.repository.model.ClienteDocument;
 import br.com.arcasoftware.comercialapi.utils.ApplicationProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @SpringBootApplication
-@EntityScan(basePackageClasses = Pedres.class)
+@EntityScan(basePackageClasses = ClienteDocument.class)
 @RestController
 @EnableCaching
 public class EmerionClienteApiApplication {

@@ -1,19 +1,19 @@
 package br.com.arcasoftware.comercialapi.application.repository;
 
+import br.com.arcasoftware.comercialapi.application.repository.model.ClienteDocument;
 import br.com.arcasoftware.comercialapi.model.DashBoardClienteInfo;
 import br.com.arcasoftware.comercialapi.model.DashBoardClienteInfoCompleto;
 import br.com.arcasoftware.comercialapi.model.DashBoardCreditoDevolucao;
 import br.com.arcasoftware.comercialapi.model.DashBoardCreditoInfo;
 import br.com.arcasoftware.comercialapi.model.DashBoardEnderecoCompleto;
 import br.com.arcasoftware.comercialapi.model.DashBoardEnderecoInfo;
-import br.com.arcasoftware.comercialapi.model.Fincli;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface AreaClienteRepository extends PagingAndSortingRepository<Fincli, Integer> {
+public interface AreaClienteRepository extends PagingAndSortingRepository<ClienteDocument, Long> {
 
     @Query(nativeQuery = true, value = "SELECT \n" +
             " cli.nomcli, cli.apecli, cli.CGCCLI, cli.INSCLI, f.NOMREGTRIB, cli.CLIDEV \n" +

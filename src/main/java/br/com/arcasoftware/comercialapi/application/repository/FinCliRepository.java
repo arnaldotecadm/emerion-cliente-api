@@ -1,13 +1,13 @@
 package br.com.arcasoftware.comercialapi.application.repository;
 
-import br.com.arcasoftware.comercialapi.model.Fincli;
+import br.com.arcasoftware.comercialapi.application.repository.model.ClienteDocument;
 import br.com.arcasoftware.comercialapi.model.dto.IFinCliDTO;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
 
-public interface FinCliRepository extends PagingAndSortingRepository<Fincli, Integer> {
+public interface FinCliRepository extends PagingAndSortingRepository<ClienteDocument, Long> {
 
     @Query(nativeQuery = true, value = "select c.codcli, c.nomcli, c.cgccli, c.cifcli, c.uffcli, c.codven, c.cnae  from Fincli c ")
     List<IFinCliDTO> getAllDTO();
