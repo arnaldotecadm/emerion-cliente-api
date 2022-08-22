@@ -1,7 +1,11 @@
 package br.com.arcasoftware.comercialapi.application.service;
 
 import br.com.arcasoftware.comercialapi.application.repository.PedResRepository;
-import br.com.arcasoftwares.model.dto.*;
+import br.com.arcasoftware.comercialapi.model.IPedRe2DTO;
+import br.com.arcasoftware.comercialapi.model.IPedResCab;
+import br.com.arcasoftware.comercialapi.model.IPedResDTO;
+import br.com.arcasoftware.comercialapi.model.IReportPedRe2Detail;
+import br.com.arcasoftware.comercialapi.model.IReportPedResHead;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

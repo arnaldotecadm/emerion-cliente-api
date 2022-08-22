@@ -1,8 +1,12 @@
 package br.com.arcasoftware.comercialapi.application.repository;
 
-import br.com.arcasoftwares.model.Pedres;
-import br.com.arcasoftwares.model.dto.*;
-import br.com.arcasoftwares.model.primarykey.PedresPK;
+import br.com.arcasoftware.comercialapi.model.IPedRe2DTO;
+import br.com.arcasoftware.comercialapi.model.IPedResCab;
+import br.com.arcasoftware.comercialapi.model.IPedResDTO;
+import br.com.arcasoftware.comercialapi.model.IReportPedRe2Detail;
+import br.com.arcasoftware.comercialapi.model.IReportPedResHead;
+import br.com.arcasoftware.comercialapi.model.Pedres;
+import br.com.arcasoftware.comercialapi.model.PedresPK;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

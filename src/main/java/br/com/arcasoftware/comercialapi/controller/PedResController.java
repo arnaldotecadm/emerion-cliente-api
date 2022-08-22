@@ -1,10 +1,14 @@
 package br.com.arcasoftware.comercialapi.controller;
 
 import br.com.arcasoftware.comercialapi.application.exception.ValidationException;
-import br.com.arcasoftware.comercialapi.application.service.ReportService;
 import br.com.arcasoftware.comercialapi.application.service.PedResService;
+import br.com.arcasoftware.comercialapi.application.service.ReportService;
+import br.com.arcasoftware.comercialapi.model.IPedRe2DTO;
+import br.com.arcasoftware.comercialapi.model.IPedResCab;
+import br.com.arcasoftware.comercialapi.model.IPedResDTO;
+import br.com.arcasoftware.comercialapi.model.IReportPedRe2Detail;
+import br.com.arcasoftware.comercialapi.model.IReportPedResHead;
 import br.com.arcasoftware.comercialapi.model.ReportFull;
-import br.com.arcasoftwares.model.dto.*;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -12,7 +16,11 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

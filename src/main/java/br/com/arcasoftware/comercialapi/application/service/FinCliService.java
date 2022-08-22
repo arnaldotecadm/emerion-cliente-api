@@ -1,8 +1,7 @@
 package br.com.arcasoftware.comercialapi.application.service;
 
 import br.com.arcasoftware.comercialapi.application.repository.FinCliRepository;
-import br.com.arcasoftwares.model.dto.IFinCliDTO;
-import org.springframework.cache.annotation.Cacheable;
+import br.com.arcasoftware.comercialapi.model.dto.IFinCliDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +14,6 @@ public class FinCliService {
     public FinCliService(FinCliRepository repository) {
         this.repository = repository;
     }
-
-    @Cacheable("getall_fincli_dto")
 
     public List<IFinCliDTO> getAllDTO() {
         return this.repository.getAllDTO();

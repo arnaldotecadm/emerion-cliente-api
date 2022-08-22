@@ -1,7 +1,7 @@
 package br.com.arcasoftware.comercialapi.controller;
 
 import br.com.arcasoftware.comercialapi.application.service.FinCliService;
-import br.com.arcasoftwares.model.dto.IFinCliDTO;
+import br.com.arcasoftware.comercialapi.model.dto.IFinCliDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

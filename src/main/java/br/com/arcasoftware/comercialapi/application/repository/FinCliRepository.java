@@ -1,7 +1,7 @@
 package br.com.arcasoftware.comercialapi.application.repository;
 
-import br.com.arcasoftwares.model.Fincli;
-import br.com.arcasoftwares.model.dto.IFinCliDTO;
+import br.com.arcasoftware.comercialapi.model.Fincli;
+import br.com.arcasoftware.comercialapi.model.dto.IFinCliDTO;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
