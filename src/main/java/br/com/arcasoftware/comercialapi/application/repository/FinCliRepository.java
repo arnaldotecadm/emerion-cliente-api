@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface FinCliRepository extends PagingAndSortingRepository<ClienteDocument, Long> {
 
-    @Query(nativeQuery = true, value = "select c.codcli, c.nomcli, c.cgccli, c.cifcli, c.uffcli, c.codven, c.cnae  from Fincli c ")
+    @Query(nativeQuery = true, value = "select c.codcli, c.nomcli, c.cgccli, c.cifcli, c.uffcli, c.codven, c.cnae  from Fincli c order by c.codcli")
     List<IFinCliDTO> getAllDTO();
 
 }
