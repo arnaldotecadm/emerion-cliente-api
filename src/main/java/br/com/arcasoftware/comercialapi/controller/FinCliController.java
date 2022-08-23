@@ -1,6 +1,7 @@
 package br.com.arcasoftware.comercialapi.controller;
 
-import br.com.arcasoftware.comercialapi.application.repository.model.ClienteData;
+import br.com.arcasoftware.comercialapi.application.repository.model.dto.ClienteData;
+import br.com.arcasoftware.comercialapi.application.repository.model.dto.InformacaoTelaInicial;
 import br.com.arcasoftware.comercialapi.application.service.FinCliService;
 import br.com.arcasoftware.comercialapi.model.dto.IFinCliDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,12 @@ public class FinCliController {
     public void save(@RequestBody @NotNull @Valid ClienteData clienteData){
         System.out.println(clienteData);
         this.service.save(clienteData);
+    }
+
+    @PostMapping("informacoes-tela-inicial")
+    public void saveInformacoesTelaInicial(@RequestBody @NotNull @Valid InformacaoTelaInicial informacaoTelaInicial){
+        System.out.println(informacaoTelaInicial);
+        this.service.saveInformacaoTelaInicial(informacaoTelaInicial);
     }
 
 }

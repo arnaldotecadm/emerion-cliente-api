@@ -1,9 +1,11 @@
-package br.com.arcasoftware.comercialapi.application.repository.model;
+package br.com.arcasoftware.comercialapi.application.repository.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Calendar;
 
 @Getter
 @Setter
@@ -17,17 +19,62 @@ public class ClienteData {
     private String apecli;
     private String cgccli;
     private String inscli;
-    private String nomregtrib;
+    private String regtrb;
     private Double clidev;
     private String cifcli;
     private String uffcli;
     private Integer codven;
     private String cnae;
     private String indicEstrangeiro;
-    private String dtncli;
+    private Calendar dtncli;
     private String tipoIndicacaoIE;
     private String inscMunicipal;
     private String obsCli;
+    private String cefcli;
+    private String ceccli;
+    private String ceacli;
+    private String ceecli;
+    private Integer indicIe;
+
+    public Integer getIndicIe() {
+        return indicIe;
+    }
+
+    public void setIndicIe(Integer indicIe) {
+        this.indicIe = indicIe;
+    }
+
+    public String getCefcli() {
+        return cefcli;
+    }
+
+    public void setCefcli(String cefcli) {
+        this.cefcli = cefcli;
+    }
+
+    public String getCeccli() {
+        return ceccli;
+    }
+
+    public void setCeccli(String ceccli) {
+        this.ceccli = ceccli;
+    }
+
+    public String getCeacli() {
+        return ceacli;
+    }
+
+    public void setCeacli(String ceacli) {
+        this.ceacli = ceacli;
+    }
+
+    public String getCeecli() {
+        return ceecli;
+    }
+
+    public void setCeecli(String ceecli) {
+        this.ceecli = ceecli;
+    }
 
     public String getCnpjEmpresa() {
         return cnpjEmpresa;
@@ -77,12 +124,12 @@ public class ClienteData {
         this.inscli = inscli;
     }
 
-    public String getNomregtrib() {
-        return nomregtrib;
+    public String getRegtrb() {
+        return regtrb;
     }
 
-    public void setNomregtrib(String nomregtrib) {
-        this.nomregtrib = nomregtrib;
+    public void setRegtrb(String regtrb) {
+        this.regtrb = regtrb;
     }
 
     public Double getClidev() {
@@ -133,11 +180,11 @@ public class ClienteData {
         this.indicEstrangeiro = indicEstrangeiro;
     }
 
-    public String getDtncli() {
+    public Calendar getDtncli() {
         return dtncli;
     }
 
-    public void setDtncli(String dtncli) {
+    public void setDtncli(Calendar dtncli) {
         this.dtncli = dtncli;
     }
 
@@ -174,7 +221,7 @@ public class ClienteData {
                 ", apecli='" + apecli + '\'' +
                 ", cgccli='" + cgccli + '\'' +
                 ", inscli='" + inscli + '\'' +
-                ", nomregtrib='" + nomregtrib + '\'' +
+                ", regtrb='" + regtrb + '\'' +
                 ", clidev=" + clidev +
                 ", cifcli='" + cifcli + '\'' +
                 ", uffcli='" + uffcli + '\'' +

@@ -1,7 +1,7 @@
 package br.com.arcasoftware.comercialapi.mapper;
 
-import br.com.arcasoftware.comercialapi.application.repository.model.ClienteData;
 import br.com.arcasoftware.comercialapi.application.repository.model.ClienteDocument;
+import br.com.arcasoftware.comercialapi.application.repository.model.dto.ClienteData;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 

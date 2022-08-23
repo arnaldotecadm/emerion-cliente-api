@@ -2,37 +2,72 @@ package br.com.arcasoftware.comercialapi.application.repository.model;
 
 import lombok.AllArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Calendar;
 
 @AllArgsConstructor
 @Entity
 @Table(name = "fincli")
-public class ClienteDocument {
+public class ClienteDocument extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-
-    private String cnpjEmpresa;
-    private String codcli;
+    private long codcli;
     private String nomcli;
     private String apecli;
     private String cgccli;
     private String inscli;
-    private String nomregtrib;
+    private Integer regtrb;
     private Double clidev;
     private String cifcli;
     private String uffcli;
     private Integer codven;
     private String cnae;
     private String indicEstrangeiro;
-    private String dtncli;
+    private Calendar dtncli;
     private String tipoIndicacaoIE;
     private String inscMunicipal;
-    private String obsCli;
+    private String obscli;
+
+    private String cefcli;
+    private String ceccli;
+    private String ceacli;
+    private String ceecli;
+
+    @Column(name = "INDIC_IE")
+    private Integer indicIe;
+
+    public String getCefcli() {
+        return cefcli;
+    }
+
+    public void setCefcli(String cefcli) {
+        this.cefcli = cefcli;
+    }
+
+    public String getCeccli() {
+        return ceccli;
+    }
+
+    public void setCeccli(String ceccli) {
+        this.ceccli = ceccli;
+    }
+
+    public String getCeacli() {
+        return ceacli;
+    }
+
+    public void setCeacli(String ceacli) {
+        this.ceacli = ceacli;
+    }
+
+    public String getCeecli() {
+        return ceecli;
+    }
+
+    public void setCeecli(String ceecli) {
+        this.ceecli = ceecli;
+    }
 
     public ClienteDocument() {
     }
@@ -49,11 +84,11 @@ public class ClienteDocument {
         this.cnpjEmpresa = cnpjEmpresa;
     }
 
-    public String getCodcli() {
+    public long getCodcli() {
         return codcli;
     }
 
-    public void setCodcli(String codcli) {
+    public void setCodcli(long codcli) {
         this.codcli = codcli;
     }
 
@@ -89,12 +124,12 @@ public class ClienteDocument {
         this.inscli = inscli;
     }
 
-    public String getNomregtrib() {
-        return nomregtrib;
+    public Integer getRegtrb() {
+        return regtrb;
     }
 
-    public void setNomregtrib(String nomregtrib) {
-        this.nomregtrib = nomregtrib;
+    public void setRegtrb(Integer regtrb) {
+        this.regtrb = regtrb;
     }
 
     public Double getClidev() {
@@ -145,11 +180,11 @@ public class ClienteDocument {
         this.indicEstrangeiro = indicEstrangeiro;
     }
 
-    public String getDtncli() {
+    public Calendar getDtncli() {
         return dtncli;
     }
 
-    public void setDtncli(String dtncli) {
+    public void setDtncli(Calendar dtncli) {
         this.dtncli = dtncli;
     }
 
@@ -169,34 +204,11 @@ public class ClienteDocument {
         this.inscMunicipal = inscMunicipal;
     }
 
-    public String getObsCli() {
-        return obsCli;
+    public String getObscli() {
+        return obscli;
     }
 
-    public void setObsCli(String obsCli) {
-        this.obsCli = obsCli;
-    }
-
-    @Override
-    public String toString() {
-        return "ClienteDocument{" +
-                "cnpjEmpresa='" + cnpjEmpresa + '\'' +
-                ", codcli='" + codcli + '\'' +
-                ", nomcli='" + nomcli + '\'' +
-                ", apecli='" + apecli + '\'' +
-                ", cgccli='" + cgccli + '\'' +
-                ", inscli='" + inscli + '\'' +
-                ", nomregtrib='" + nomregtrib + '\'' +
-                ", clidev=" + clidev +
-                ", cifcli='" + cifcli + '\'' +
-                ", uffcli='" + uffcli + '\'' +
-                ", codven=" + codven +
-                ", cnae='" + cnae + '\'' +
-                ", indicEstrangeiro='" + indicEstrangeiro + '\'' +
-                ", dtncli='" + dtncli + '\'' +
-                ", tipoIndicacaoIE='" + tipoIndicacaoIE + '\'' +
-                ", inscMunicipal='" + inscMunicipal + '\'' +
-                ", obsCli='" + obsCli + '\'' +
-                '}';
+    public void setObscli(String obscli) {
+        this.obscli = obscli;
     }
 }

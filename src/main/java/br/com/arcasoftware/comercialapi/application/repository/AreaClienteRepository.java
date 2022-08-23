@@ -20,7 +20,7 @@ public interface AreaClienteRepository extends PagingAndSortingRepository<Client
             " FROM fincli cli\n" +
             " LEFT JOIN FINREGTRIB f ON f.NUMREGTRIB = cli.REGTRB" +
             " where codcli = :codcli")
-    DashBoardClienteInfo getDashboardClienteInfo(@Param("codcli") Integer codcli);
+    DashBoardClienteInfo getDashboardClienteInfo(@Param("codcli") long codcli);
 
     @Query(nativeQuery = true, value = "Select\n" +
             "\tcde.seqcde, cde.dtecde,\n" +
@@ -38,7 +38,7 @@ public interface AreaClienteRepository extends PagingAndSortingRepository<Client
             "Where" +
             " cde.codcli = :codcli\n" +
             "order by cde.dtecde ")
-    List<DashBoardCreditoInfo> getDashboardCreditoInfo(@Param("codcli") Integer codcli);
+    List<DashBoardCreditoInfo> getDashboardCreditoInfo(@Param("codcli") long codcli);
 
     @Query(nativeQuery = true, value = "SELECT cast('Faturamento' as varchar(20)) AS tipo, cefcli as cep FROM fincli WHERE codcli = :codcli\n" +
             "UNION all\n" +
@@ -47,7 +47,7 @@ public interface AreaClienteRepository extends PagingAndSortingRepository<Client
             "SELECT cast('Compras' as varchar(20)), CEACLI FROM fincli WHERE codcli = :codcli\n" +
             "UNION all\n" +
             "SELECT cast('Entrega' as varchar(20)), CEECLI FROM fincli WHERE codcli = :codcli")
-    List<DashBoardEnderecoInfo> getDashboardEnderecoInfo(@Param("codcli") Integer codcli);
+    List<DashBoardEnderecoInfo> getDashboardEnderecoInfo(@Param("codcli") long codcli);
 
     @Query(nativeQuery = true, value = "SELECT cast('Faturamento'as varchar(20)) AS tipo, cefcli, TEFCLI, ENFCLI, NRFCLI, RFFCLI, BAFCLI, CIFCLI, UFFCLI, PT1CLI, FO1CLI, COFCLI, PC1CLI, FC1CLI\n" +
             "FROM fincli WHERE codcli = :codcli\n" +
