@@ -1,12 +1,16 @@
 package br.com.arcasoftware.comercialapi.application.repository.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.Calendar;
 
+@Getter
+@Setter
 @AllArgsConstructor
 @Entity
 @Table(name = "fincli")
@@ -33,6 +37,56 @@ public class ClienteDocument extends BaseEntity {
     private String ceccli;
     private String ceacli;
     private String ceecli;
+
+    private String TEFCLI;
+    private String ENFCLI;
+    private String NRFCLI;
+    private String RFFCLI;
+    private String BAFCLI;
+    private String PT1CLI;
+    private String FO1CLI;
+    private String COFCLI;
+    private String PC1CLI;
+    private String FC1CLI;
+
+    private String TECCLI;
+    private String ENCCLI;
+    private String NRCCLI;
+    private String RFCCLI;
+    private String BACCLI;
+    private String CICCLI;
+    private String UFCCLI;
+    private String PT2CLI;
+    private String FO2CLI;
+    private String COCCLI;
+    private String PC2CLI;
+    private String FC2CLI;
+
+    private String TEACLI;
+    private String ENACLI;
+    private String NRACLI;
+    private String RFACLI;
+    private String BAACLI;
+    private String CIACLI;
+    private String UFACLI;
+    private String PT3CLI;
+    private String FO3CLI;
+    private String COMCLI;
+    private String PC3CLI;
+    private String FC3CLI;
+
+    private String TEECLI;
+    private String ENECLI;
+    private String NRECLI;
+    private String RFECLI;
+    private String BAECLI;
+    private String CIECLI;
+    private String UFECLI;
+    private String PT4CLI;
+    private String FO4CLI;
+    private String COECLI;
+    private String PC4CLI;
+    private String FC4CLI;
 
     @Column(name = "INDIC_IE")
     private Integer indicIe;

@@ -106,48 +106,85 @@ public class FinCliService {
     }
 
     public void saveEnderecoCompleto(EnderecoCompleto enderecoCompleto) {
-        String cefcli = "";
-        String ceccli = "";
-        String ceacli = "";
-        String ceecli = "";
+
+        Optional<ClienteDocument> fincli = this.getByCnpjEmpresaAndCodcli(enderecoCompleto.getCnpjEmpresa(), enderecoCompleto.getCodcli());
+        ClienteDocument cliente;
+        if (fincli.isPresent()) {
+            cliente = fincli.get();
+        } else {
+            cliente = new ClienteDocument();
+        }
 
         for (Endereco end : enderecoCompleto.getEndereco()) {
             String tipo = end.getTipo().toUpperCase();
 
             switch (tipo) {
                 case "FATURAMENTO": {
-                    cefcli = end.getCep();
+                    cliente.setCefcli(end.getCefcli());
+                    cliente.setTEFCLI(end.getTefcli());
+                    cliente.setENFCLI(end.getEnfcli());
+                    cliente.setNRFCLI(end.getNrfcli());
+                    cliente.setRFFCLI(end.getRffcli());
+                    cliente.setBAFCLI(end.getBafcli());
+                    cliente.setCifcli(end.getCifcli());
+                    cliente.setUffcli(end.getUffcli());
+                    cliente.setPT1CLI(end.getPt1cli());
+                    cliente.setFO1CLI(end.getFo1cli());
+                    cliente.setCOFCLI(end.getCofcli());
+                    cliente.setPC1CLI(end.getPc1cli());
+                    cliente.setFC1CLI(end.getFc1cli());
                     break;
                 }
                 case "COBRANCA": {
-                    ceccli = end.getCep();
+                    cliente.setCeccli(end.getCefcli());
+                    cliente.setTECCLI(end.getTefcli());
+                    cliente.setENCCLI(end.getEnfcli());
+                    cliente.setNRCCLI(end.getNrfcli());
+                    cliente.setRFCCLI(end.getRffcli());
+                    cliente.setBACCLI(end.getBafcli());
+                    cliente.setCICCLI(end.getCifcli());
+                    cliente.setUFCCLI(end.getUffcli());
+                    cliente.setPT2CLI(end.getPt1cli());
+                    cliente.setFO2CLI(end.getFo1cli());
+                    cliente.setCOCCLI(end.getCofcli());
+                    cliente.setPC2CLI(end.getPc1cli());
+                    cliente.setFC2CLI(end.getFc1cli());
                     break;
                 }
                 case "COMPRAS": {
-                    ceacli = end.getCep();
+                    cliente.setCeacli(end.getCefcli());
+                    cliente.setTEACLI(end.getTefcli());
+                    cliente.setENACLI(end.getEnfcli());
+                    cliente.setNRACLI(end.getNrfcli());
+                    cliente.setRFACLI(end.getRffcli());
+                    cliente.setBAACLI(end.getBafcli());
+                    cliente.setCIACLI(end.getCifcli());
+                    cliente.setUFACLI(end.getUffcli());
+                    cliente.setPT3CLI(end.getPt1cli());
+                    cliente.setFO3CLI(end.getFo1cli());
+                    cliente.setCOMCLI(end.getCofcli());
+                    cliente.setPC3CLI(end.getPc1cli());
+                    cliente.setFC3CLI(end.getFc1cli());
                     break;
                 }
                 case "ENTREGA": {
-                    ceecli = end.getCep();
+                    cliente.setCeecli(end.getCefcli());
+                    cliente.setTEECLI(end.getTefcli());
+                    cliente.setENECLI(end.getEnfcli());
+                    cliente.setNRECLI(end.getNrfcli());
+                    cliente.setRFECLI(end.getRffcli());
+                    cliente.setBAECLI(end.getBafcli());
+                    cliente.setCIECLI(end.getCifcli());
+                    cliente.setUFECLI(end.getUffcli());
+                    cliente.setPT4CLI(end.getPt1cli());
+                    cliente.setFO4CLI(end.getFo1cli());
+                    cliente.setCOECLI(end.getCofcli());
+                    cliente.setPC4CLI(end.getPc1cli());
+                    cliente.setFC4CLI(end.getFc1cli());
                     break;
                 }
             }
         }
-
-        Optional<ClienteDocument> fincli = this.getByCnpjEmpresaAndCodcli(informacaoTelaInicial.getCnpjEmpresa(), informacaoTelaInicial.getCodcli());
-        ClienteDocument cliente;
-        if (fincli.isPresent()) {
-            cliente = fincli.get();
-        } else {
-            cliente = new ClienteDocument();
-            cliente.setCnpjEmpresa(informacaoTelaInicial.getCnpjEmpresa());
-            cliente.setCodcli(informacaoTelaInicial.getCodcli());
-        }
-
-        cliente.setCefcli(cefcli);
-        cliente.setCeccli(ceccli);
-        cliente.setCeacli(ceacli);
-        cliente.setCeecli(ceecli);
 
         ClienteData clienteData = this.clienteDataMapper.clienteDocumentToCLienteData(cliente);
         this.save(clienteData);
