@@ -7,6 +7,8 @@ import br.com.arcasoftware.comercialapi.application.repository.model.Finregtrib;
 import br.com.arcasoftware.comercialapi.application.repository.model.TipIndicIe;
 import br.com.arcasoftware.comercialapi.application.repository.model.dto.ClienteData;
 import br.com.arcasoftware.comercialapi.application.repository.model.dto.DashboardEndereco;
+import br.com.arcasoftware.comercialapi.application.repository.model.dto.Endereco;
+import br.com.arcasoftware.comercialapi.application.repository.model.dto.EnderecoCompleto;
 import br.com.arcasoftware.comercialapi.application.repository.model.dto.InformacaoTelaInicial;
 import br.com.arcasoftware.comercialapi.mapper.ClienteDataMapper;
 import br.com.arcasoftware.comercialapi.model.dto.IFinCliDTO;
@@ -62,6 +64,54 @@ public class FinCliService {
         String ceecli = "";
 
         for (DashboardEndereco end : informacaoTelaInicial.getDashboardEndereco()) {
+            String tipo = end.getTipo().toUpperCase();
+
+            switch (tipo) {
+                case "FATURAMENTO": {
+                    cefcli = end.getCep();
+                    break;
+                }
+                case "COBRANCA": {
+                    ceccli = end.getCep();
+                    break;
+                }
+                case "COMPRAS": {
+                    ceacli = end.getCep();
+                    break;
+                }
+                case "ENTREGA": {
+                    ceecli = end.getCep();
+                    break;
+                }
+            }
+        }
+
+        Optional<ClienteDocument> fincli = this.getByCnpjEmpresaAndCodcli(informacaoTelaInicial.getCnpjEmpresa(), informacaoTelaInicial.getCodcli());
+        ClienteDocument cliente;
+        if (fincli.isPresent()) {
+            cliente = fincli.get();
+        } else {
+            cliente = new ClienteDocument();
+            cliente.setCnpjEmpresa(informacaoTelaInicial.getCnpjEmpresa());
+            cliente.setCodcli(informacaoTelaInicial.getCodcli());
+        }
+
+        cliente.setCefcli(cefcli);
+        cliente.setCeccli(ceccli);
+        cliente.setCeacli(ceacli);
+        cliente.setCeecli(ceecli);
+
+        ClienteData clienteData = this.clienteDataMapper.clienteDocumentToCLienteData(cliente);
+        this.save(clienteData);
+    }
+
+    public void saveEnderecoCompleto(EnderecoCompleto enderecoCompleto) {
+        String cefcli = "";
+        String ceccli = "";
+        String ceacli = "";
+        String ceecli = "";
+
+        for (Endereco end : enderecoCompleto.getEndereco()) {
             String tipo = end.getTipo().toUpperCase();
 
             switch (tipo) {

@@ -1,6 +1,7 @@
 package br.com.arcasoftware.comercialapi.controller;
 
 import br.com.arcasoftware.comercialapi.application.repository.model.dto.ClienteData;
+import br.com.arcasoftware.comercialapi.application.repository.model.dto.EnderecoCompleto;
 import br.com.arcasoftware.comercialapi.application.repository.model.dto.InformacaoTelaInicial;
 import br.com.arcasoftware.comercialapi.application.service.FinCliService;
 import br.com.arcasoftware.comercialapi.model.dto.IFinCliDTO;
@@ -43,6 +44,12 @@ public class FinCliController {
     public void saveInformacoesTelaInicial(@RequestBody @NotNull @Valid InformacaoTelaInicial informacaoTelaInicial){
         System.out.println(informacaoTelaInicial);
         this.service.saveInformacaoTelaInicial(informacaoTelaInicial);
+    }
+
+    @PostMapping("endereco")
+    public void saveEnderecos(@RequestBody @NotNull @Valid EnderecoCompleto enderecoCompleto){
+        System.out.println(enderecoCompleto);
+        this.service.saveEnderecoCompleto(enderecoCompleto);
     }
 
 }
