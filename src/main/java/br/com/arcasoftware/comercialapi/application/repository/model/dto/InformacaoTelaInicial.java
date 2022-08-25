@@ -14,7 +14,6 @@ import java.util.List;
 public class InformacaoTelaInicial {
     private String cnpjEmpresa;
     private long codcli;
-    private DashboardCliente dashboardCliente;
     private List<DashboardCredito> dashboardCredito;
     private List<DashboardEndereco> dashboardEndereco;
 }

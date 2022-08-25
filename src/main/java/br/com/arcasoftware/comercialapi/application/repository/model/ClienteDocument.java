@@ -265,4 +265,14 @@ public class ClienteDocument extends BaseEntity {
     public void setObscli(String obscli) {
         this.obscli = obscli;
     }
+
+    @Override
+    public Long getId() {
+        return super.getId();
+    }
+
+    @Override
+    public void setId(final Long id) {
+        super.setId(id);
+    }
 }

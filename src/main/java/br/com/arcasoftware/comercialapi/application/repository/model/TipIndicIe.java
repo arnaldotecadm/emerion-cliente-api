@@ -11,6 +11,5 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tip_indic_ie")
 public class TipIndicIe extends BaseEntity {
-    private Integer id;
     private String tipo;
 }

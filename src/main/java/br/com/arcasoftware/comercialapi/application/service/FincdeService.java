@@ -17,7 +17,7 @@ public class FincdeService {
         this.repository = repository;
     }
 
-    public Optional<Finregtrib> getByCnpjEmpresaAndCodempAndDtecdeAndSeqcde(String cnpjEmpresa, int codemp, String dtecde, int seqcde) {
+    public Optional<Fincde> getByCnpjEmpresaAndCodempAndDtecdeAndSeqcde(String cnpjEmpresa, int codemp, String dtecde, int seqcde) {
         return this.repository.findByCnpjEmpresaAndCodempAndDtecdeAndSeqcde(cnpjEmpresa, codemp, dtecde, seqcde);
 
     }

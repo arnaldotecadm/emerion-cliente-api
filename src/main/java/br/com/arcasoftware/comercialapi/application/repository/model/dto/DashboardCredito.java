@@ -13,7 +13,7 @@ public class DashboardCredito {
     private int codemp;
     private String dtecde;
     private int seqcde;
-    private Integer sedcde;
     private double usacde;
     private double valcde;
+    private Double sldcde;
 }

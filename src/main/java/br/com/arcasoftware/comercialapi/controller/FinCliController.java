@@ -41,9 +41,10 @@ public class FinCliController {
     }
 
     @PostMapping("informacoes-tela-inicial")
-    public void saveInformacoesTelaInicial(@RequestBody @NotNull @Valid InformacaoTelaInicial informacaoTelaInicial){
+    public String saveInformacoesTelaInicial(@RequestBody @NotNull @Valid InformacaoTelaInicial informacaoTelaInicial){
         System.out.println(informacaoTelaInicial);
         this.service.saveInformacaoTelaInicial(informacaoTelaInicial);
+        return "Funcionou";
     }
 
     @PostMapping("endereco")

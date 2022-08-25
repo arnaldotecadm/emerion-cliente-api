@@ -8,5 +8,5 @@ import java.util.Optional;
 
 public interface FincdeRepository extends PagingAndSortingRepository<Fincde, Long> {
 
-    Optional<Finregtrib> findByCnpjEmpresaAndCodempAndDtecdeAndSeqcde(String cnpjEmpresa, int codemp, String dtecde, int sqecde);
+    Optional<Fincde> findByCnpjEmpresaAndCodempAndDtecdeAndSeqcde(String cnpjEmpresa, int codemp, String dtecde, int sqecde);
 }
