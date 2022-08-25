@@ -1,6 +1,9 @@
 package br.com.arcasoftware.comercialapi.controller;
 
 import br.com.arcasoftware.comercialapi.application.exception.ValidationException;
+import br.com.arcasoftware.comercialapi.application.repository.model.Pedres;
+import br.com.arcasoftware.comercialapi.application.repository.model.dto.EnderecoCompleto;
+import br.com.arcasoftware.comercialapi.application.repository.model.dto.PedresData;
 import br.com.arcasoftware.comercialapi.application.service.PedResService;
 import br.com.arcasoftware.comercialapi.application.service.ReportService;
 import br.com.arcasoftware.comercialapi.model.IPedRe2DTO;
@@ -19,9 +22,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -87,5 +94,10 @@ public class PedResController {
             throw new ValidationException(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
+    }
+
+    @PostMapping("")
+    public void save(@RequestBody @NotNull @Valid Pedres data){
+        this.service.save(data);
     }
 }

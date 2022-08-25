@@ -23,9 +23,9 @@ public interface IPedResDTO {
 
 	BigDecimal getSLDGER();
 
-	Date getDTERES();
+	String getDTERES();
 
-	Date getDTFRES();
+	String getDTFRES();
 
 	String getUFERES();
 

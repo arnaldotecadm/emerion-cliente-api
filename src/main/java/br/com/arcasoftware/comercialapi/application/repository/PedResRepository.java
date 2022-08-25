@@ -1,6 +1,7 @@
 package br.com.arcasoftware.comercialapi.application.repository;
 
 import br.com.arcasoftware.comercialapi.application.repository.model.ClienteDocument;
+import br.com.arcasoftware.comercialapi.application.repository.model.Pedres;
 import br.com.arcasoftware.comercialapi.model.IPedRe2DTO;
 import br.com.arcasoftware.comercialapi.model.IPedResCab;
 import br.com.arcasoftware.comercialapi.model.IPedResDTO;
@@ -13,9 +14,12 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public interface PedResRepository extends CrudRepository<ClienteDocument, Long> {
+public interface PedResRepository extends CrudRepository<Pedres, Long> {
+
+    Optional<Pedres> findByNumres(Long numres);
 
     @Query(nativeQuery = true, value = "select fat.arqnfe from FATPED fat where fat.numres = :numres")
     byte[] getNfePedido(Integer numres);
@@ -26,7 +30,6 @@ public interface PedResRepository extends CrudRepository<ClienteDocument, Long> 
             + " (SELECT nomatd FROM finatd atd WHERE atd.codatd = p.codatd) AS nomAtd, "
             + " (SELECT nomcli FROM fincli cli WHERE cli.codcli = p.codcli) AS nomcli"
             + " from Pedres p" +
-            //" where (select count(1) from pedre2 re2 where re2.codemp = p.codemp and re2.dteres = p.dteres and re2.numres = p.numres) > 2" +
             " order by p.numres desc")
     List<IPedResDTO> getCabecalhoPedidoList(@Param("pRecordCount") Integer pRecordNumber);
 
