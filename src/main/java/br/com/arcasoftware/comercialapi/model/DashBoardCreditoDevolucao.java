@@ -7,7 +7,7 @@ import java.util.Date;
 public interface DashBoardCreditoDevolucao {
     Integer getSeqcde();
 
-    Date getDTECDE();
+    String getDTECDE();
 
     BigDecimal getVALCDE();
 

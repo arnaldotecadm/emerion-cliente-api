@@ -23,7 +23,7 @@ public class AreaClienteController {
     }
 
     @GetMapping("dashboard/{codcli}")
-    public Object getDashBoard(@PathVariable("codcli") Integer codcli) {
+    public Object getDashBoard(@PathVariable("codcli") long codcli) {
         DashBoardClienteInfo dashBoardClienteInfo = this.service.getDashboardClienteInfo(codcli);
         List<DashBoardCreditoInfo> dashboardCreditoInfo = this.service.getDashboardCreditoInfo(codcli);
         List<DashBoardEnderecoInfo> dashboardEnderecoInfo = this.service.getDashboardEnderecoInfo(codcli);

@@ -1,10 +1,15 @@
 package br.com.arcasoftware.comercialapi.controller;
 
 import br.com.arcasoftware.comercialapi.application.exception.ValidationException;
-import br.com.arcasoftware.comercialapi.application.service.ReportService;
+import br.com.arcasoftware.comercialapi.application.repository.model.Pedres;
 import br.com.arcasoftware.comercialapi.application.service.PedResService;
+import br.com.arcasoftware.comercialapi.application.service.ReportService;
+import br.com.arcasoftware.comercialapi.model.IPedRe2DTO;
+import br.com.arcasoftware.comercialapi.model.IPedResCab;
+import br.com.arcasoftware.comercialapi.model.IPedResDTO;
+import br.com.arcasoftware.comercialapi.model.IReportPedRe2Detail;
+import br.com.arcasoftware.comercialapi.model.IReportPedResHead;
 import br.com.arcasoftware.comercialapi.model.ReportFull;
-import br.com.arcasoftwares.model.dto.*;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -12,8 +17,16 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -28,13 +41,12 @@ import java.util.List;
 public class PedResController {
 
     private final PedResService service;
+    private final ReportService reportService;
 
     @Autowired
-    private ReportService reportService;
-
-    @Autowired
-    public PedResController(PedResService service) {
+    public PedResController(PedResService service, ReportService reportService) {
         this.service = service;
+        this.reportService = reportService;
     }
 
     @GetMapping(value = {"cabecalho-pedido"})
@@ -79,5 +91,10 @@ public class PedResController {
             throw new ValidationException(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
+    }
+
+    @PostMapping("")
+    public void save(@RequestBody @NotNull @Valid Pedres data) {
+        this.service.save(data);
     }
 }
