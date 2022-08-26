@@ -2,8 +2,6 @@ package br.com.arcasoftware.comercialapi.controller;
 
 import br.com.arcasoftware.comercialapi.application.exception.ValidationException;
 import br.com.arcasoftware.comercialapi.application.repository.model.Pedres;
-import br.com.arcasoftware.comercialapi.application.repository.model.dto.EnderecoCompleto;
-import br.com.arcasoftware.comercialapi.application.repository.model.dto.PedresData;
 import br.com.arcasoftware.comercialapi.application.service.PedResService;
 import br.com.arcasoftware.comercialapi.application.service.ReportService;
 import br.com.arcasoftware.comercialapi.model.IPedRe2DTO;
@@ -43,13 +41,12 @@ import java.util.List;
 public class PedResController {
 
     private final PedResService service;
+    private final ReportService reportService;
 
     @Autowired
-    private ReportService reportService;
-
-    @Autowired
-    public PedResController(PedResService service) {
+    public PedResController(PedResService service, ReportService reportService) {
         this.service = service;
+        this.reportService = reportService;
     }
 
     @GetMapping(value = {"cabecalho-pedido"})
@@ -97,7 +94,7 @@ public class PedResController {
     }
 
     @PostMapping("")
-    public void save(@RequestBody @NotNull @Valid Pedres data){
+    public void save(@RequestBody @NotNull @Valid Pedres data) {
         this.service.save(data);
     }
 }

@@ -19,6 +19,10 @@ public class Pedres extends BaseEntity {
     private Double totger;
     private Double totres;
     private Double totren;
+    private Double totipi;
+    private Double totsub;
+    private Double TOTDESCINC;
+    private String pedant;
     private Double fatger;
     private Double devger;
     private Double sldger;
@@ -165,6 +169,54 @@ public class Pedres extends BaseEntity {
 
     public void setQtdimp(final int qtdimp) {
         this.qtdimp = qtdimp;
+    }
+
+    public Double getTotipi() {
+        return totipi;
+    }
+
+    public void setTotipi(final Double totipi) {
+        this.totipi = totipi;
+    }
+
+    public Integer getCodven() {
+        return codven;
+    }
+
+    public void setCodven(final Integer codven) {
+        this.codven = codven;
+    }
+
+    public Integer getCodatd() {
+        return codatd;
+    }
+
+    public void setCodatd(final Integer codatd) {
+        this.codatd = codatd;
+    }
+
+    public Double getTotsub() {
+        return totsub;
+    }
+
+    public void setTotsub(final Double totsub) {
+        this.totsub = totsub;
+    }
+
+    public Double getTOTDESCINC() {
+        return TOTDESCINC;
+    }
+
+    public void setTOTDESCINC(final Double TOTDESCINC) {
+        this.TOTDESCINC = TOTDESCINC;
+    }
+
+    public String getPedant() {
+        return pedant;
+    }
+
+    public void setPedant(final String pedant) {
+        this.pedant = pedant;
     }
 
     @Override

@@ -3,18 +3,22 @@ package br.com.arcasoftware.comercialapi.application.repository.model.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
 @Getter
 @Setter
 public class PedresData {
     private String cnpjEmpresa;
     private long codcli;
+    private Integer codven;
+    private Integer codatd;
+
     private long numres;
     private String codpfa;
     private Double totger;
     private Double totres;
+    private Double totipi;
+    private Double totsub;
+    private Double TOTDESCINC;
+    private String pedant;
     private Double totren;
     private Double fatger;
     private Double devger;
@@ -170,5 +174,53 @@ public class PedresData {
 
     public void setQtdimp(final int qtdimp) {
         this.qtdimp = qtdimp;
+    }
+
+    public Double getTotipi() {
+        return totipi;
+    }
+
+    public void setTotipi(final Double totipi) {
+        this.totipi = totipi;
+    }
+
+    public Double getTotsub() {
+        return totsub;
+    }
+
+    public void setTotsub(final Double totsub) {
+        this.totsub = totsub;
+    }
+
+    public Double getTOTDESCINC() {
+        return TOTDESCINC;
+    }
+
+    public void setTOTDESCINC(final Double TOTDESCINC) {
+        this.TOTDESCINC = TOTDESCINC;
+    }
+
+    public String getPedant() {
+        return pedant;
+    }
+
+    public void setPedant(final String pedant) {
+        this.pedant = pedant;
+    }
+
+    public Integer getCodven() {
+        return codven;
+    }
+
+    public void setCodven(final Integer codven) {
+        this.codven = codven;
+    }
+
+    public Integer getCodatd() {
+        return codatd;
+    }
+
+    public void setCodatd(final Integer codatd) {
+        this.codatd = codatd;
     }
 }
