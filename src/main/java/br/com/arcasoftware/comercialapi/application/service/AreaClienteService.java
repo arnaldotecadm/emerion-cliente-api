@@ -17,15 +17,15 @@ public class AreaClienteService {
         this.repository = repository;
     }
 
-    public DashBoardClienteInfo getDashboardClienteInfo(Integer codcli) {
+    public DashBoardClienteInfo getDashboardClienteInfo(long codcli) {
         return this.repository.getDashboardClienteInfo(codcli);
     }
 
-    public List<DashBoardCreditoInfo> getDashboardCreditoInfo(Integer codcli) {
+    public List<DashBoardCreditoInfo> getDashboardCreditoInfo(long codcli) {
         return this.repository.getDashboardCreditoInfo(codcli);
     }
 
-    public List<DashBoardEnderecoInfo> getDashboardEnderecoInfo(Integer codcli) {
+    public List<DashBoardEnderecoInfo> getDashboardEnderecoInfo(long codcli) {
         return this.repository.getDashboardEnderecoInfo(codcli);
     }
 

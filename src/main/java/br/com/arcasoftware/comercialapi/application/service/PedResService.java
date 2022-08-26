@@ -1,12 +1,18 @@
 package br.com.arcasoftware.comercialapi.application.service;
 
 import br.com.arcasoftware.comercialapi.application.repository.PedResRepository;
-import br.com.arcasoftwares.model.dto.*;
+import br.com.arcasoftware.comercialapi.application.repository.model.Pedres;
+import br.com.arcasoftware.comercialapi.model.IPedRe2DTO;
+import br.com.arcasoftware.comercialapi.model.IPedResCab;
+import br.com.arcasoftware.comercialapi.model.IPedResDTO;
+import br.com.arcasoftware.comercialapi.model.IReportPedRe2Detail;
+import br.com.arcasoftware.comercialapi.model.IReportPedResHead;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PedResService {
@@ -16,6 +22,20 @@ public class PedResService {
     @Autowired
     public PedResService(PedResRepository repository) {
         this.repository = repository;
+    }
+
+    Optional<Pedres> getByNumres(long numres) {
+        return this.repository.findByNumres(numres);
+    }
+
+    public void save(Pedres data) {
+        Optional<Pedres> byNumres = this.getByNumres(data.getNumres());
+
+        if (byNumres.isPresent()) {
+            data.setId(byNumres.get().getId());
+        }
+
+        this.repository.save(data);
     }
 
     public List<IPedResDTO> getCabecalhoPedidoList(Integer recordCount) {

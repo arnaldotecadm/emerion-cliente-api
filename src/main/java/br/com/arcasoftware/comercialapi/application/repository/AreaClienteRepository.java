@@ -1,21 +1,26 @@
 package br.com.arcasoftware.comercialapi.application.repository;
 
-import br.com.arcasoftware.comercialapi.model.*;
-import br.com.arcasoftwares.model.Fincli;
+import br.com.arcasoftware.comercialapi.application.repository.model.ClienteDocument;
+import br.com.arcasoftware.comercialapi.model.DashBoardClienteInfo;
+import br.com.arcasoftware.comercialapi.model.DashBoardClienteInfoCompleto;
+import br.com.arcasoftware.comercialapi.model.DashBoardCreditoDevolucao;
+import br.com.arcasoftware.comercialapi.model.DashBoardCreditoInfo;
+import br.com.arcasoftware.comercialapi.model.DashBoardEnderecoCompleto;
+import br.com.arcasoftware.comercialapi.model.DashBoardEnderecoInfo;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface AreaClienteRepository extends PagingAndSortingRepository<Fincli, Integer> {
+public interface AreaClienteRepository extends PagingAndSortingRepository<ClienteDocument, Long> {
 
     @Query(nativeQuery = true, value = "SELECT \n" +
             " cli.nomcli, cli.apecli, cli.CGCCLI, cli.INSCLI, f.NOMREGTRIB, cli.CLIDEV \n" +
             " FROM fincli cli\n" +
             " LEFT JOIN FINREGTRIB f ON f.NUMREGTRIB = cli.REGTRB" +
             " where codcli = :codcli")
-    DashBoardClienteInfo getDashboardClienteInfo(@Param("codcli") Integer codcli);
+    DashBoardClienteInfo getDashboardClienteInfo(@Param("codcli") long codcli);
 
     @Query(nativeQuery = true, value = "Select\n" +
             "\tcde.seqcde, cde.dtecde,\n" +
@@ -33,7 +38,7 @@ public interface AreaClienteRepository extends PagingAndSortingRepository<Fincli
             "Where" +
             " cde.codcli = :codcli\n" +
             "order by cde.dtecde ")
-     List<DashBoardCreditoInfo> getDashboardCreditoInfo(@Param("codcli") Integer codcli);
+    List<DashBoardCreditoInfo> getDashboardCreditoInfo(@Param("codcli") long codcli);
 
     @Query(nativeQuery = true, value = "SELECT cast('Faturamento' as varchar(20)) AS tipo, cefcli as cep FROM fincli WHERE codcli = :codcli\n" +
             "UNION all\n" +
@@ -42,7 +47,7 @@ public interface AreaClienteRepository extends PagingAndSortingRepository<Fincli
             "SELECT cast('Compras' as varchar(20)), CEACLI FROM fincli WHERE codcli = :codcli\n" +
             "UNION all\n" +
             "SELECT cast('Entrega' as varchar(20)), CEECLI FROM fincli WHERE codcli = :codcli")
-     List<DashBoardEnderecoInfo> getDashboardEnderecoInfo(@Param("codcli") Integer codcli);
+    List<DashBoardEnderecoInfo> getDashboardEnderecoInfo(@Param("codcli") long codcli);
 
     @Query(nativeQuery = true, value = "SELECT cast('Faturamento'as varchar(20)) AS tipo, cefcli, TEFCLI, ENFCLI, NRFCLI, RFFCLI, BAFCLI, CIFCLI, UFFCLI, PT1CLI, FO1CLI, COFCLI, PC1CLI, FC1CLI\n" +
             "FROM fincli WHERE codcli = :codcli\n" +

@@ -15,6 +15,10 @@ public class ValidationException extends RuntimeException {
     private final HttpStatus httpStatus;
     private final String description;
 
+    public ValidationException(String description) {
+        this(description, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
     public ValidationException(String description, HttpStatus httpStatus) {
         this.description = description;
         this.httpStatus = httpStatus;
