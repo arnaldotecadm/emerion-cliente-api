@@ -5,11 +5,12 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "pedres")
+@Table(name = "pedres", uniqueConstraints = {@UniqueConstraint(columnNames = {"cnpjEmpresa", "numres"})})
 public class Pedres extends BaseEntity {
     private long codcli;
     private Integer codven;

@@ -7,13 +7,14 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import java.util.Calendar;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @Entity
-@Table(name = "fincli")
+@Table(name = "fincli", uniqueConstraints = {@UniqueConstraint(columnNames = {"cnpjEmpresa", "codcli"})})
 public class ClienteDocument extends BaseEntity {
 
     private long codcli;

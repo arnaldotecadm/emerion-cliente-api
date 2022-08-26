@@ -5,11 +5,12 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "tip_indic_ie")
+@Table(name = "tip_indic_ie", uniqueConstraints = {@UniqueConstraint(columnNames = {"cnpjEmpresa", "id"})})
 public class TipIndicIe extends BaseEntity {
     private String tipo;
 }
