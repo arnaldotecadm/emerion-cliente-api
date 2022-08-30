@@ -14,6 +14,28 @@ import java.math.BigDecimal;
 @Table(name = "pedre2", uniqueConstraints = {@UniqueConstraint(columnNames = {"cnpjEmpresa", "numres", "codgru", "codsub", "codpro"})})
 public class Pedre2 extends BaseEntity {
     private long numres;
+    private Integer codemp;
+    private String dteres;
+    private Integer seqre2;
+    private String flgval;
+    private String flgpac;
+    private String flglib;
+    private String clsipi;
+    private String codcfo;
+    private String codund;
+    private Double vlure2;
+    private Double dscre2;
+    private Double dsrre2;
+    private String obsre2;
+    private Double totseg;
+    private Double totoutdesp;
+    private Integer numpedcompra;
+    private Integer numitemcompra;
+    private Double totge2;
+    private Double totitetrb;
+    private Integer nrore2;
+    private Integer codclp;
+
     private String codgru;
     private String codsub;
     private String codpro;

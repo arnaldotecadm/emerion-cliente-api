@@ -3,9 +3,11 @@ package br.com.arcasoftware.comercialapi.application.repository.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -13,6 +15,50 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "pedres", uniqueConstraints = {@UniqueConstraint(columnNames = {"cnpjEmpresa", "numres"})})
 public class Pedres extends BaseEntity {
     private long codcli;
+    private Integer codemp;
+    private Integer codtra;
+    private String hreres;
+    @Column(name = "ID_FRETE")
+    private Integer idFrete;
+    private String cgccli;
+    private String noment;
+    private String dtefin;
+    private String hrefin;
+    private Double qtires;
+    private Double qtpres;
+    private String lanest;
+    private Integer codfil;
+    private Integer codtip;
+    private String tippfa;
+    private Double toticm;
+    private Double totcst;
+    private String meddsc;
+    private Double totdsc;
+    private Double medacr;
+    private Double totacr;
+    private Double medprm;
+    private Double totdsp;
+    private Double medcom;
+    private Double totcom;
+    private Double meddco;
+    private Double totdco;
+    private Double dscreg;
+    private Double totdsr;
+    private Integer usurej;
+    private String flgoco;
+    private String atuest;
+    private String cidcli;
+    private String ufecli;
+    private String cepcli;
+    private Double totfrt;
+    private Double totseg;
+    private Double totoutdesp;
+    private String flgfec;
+    private String inscli;
+    private String tencli;
+    private String endcli;
+    private String numcli;
+    private String baicli;
     private Integer codven;
     private Integer codatd;
     private long numres;
@@ -27,8 +73,8 @@ public class Pedres extends BaseEntity {
     private Double fatger;
     private Double devger;
     private Double sldger;
-    private String dteres;
-    private String dtfres;
+    private Date dteres;
+    private Date dtfres;
     private String uferes;
     private String flgimp;
     private String sitres;
@@ -108,19 +154,19 @@ public class Pedres extends BaseEntity {
         this.sldger = sldger;
     }
 
-    public String getDteres() {
+    public Date getDteres() {
         return dteres;
     }
 
-    public void setDteres(final String dteres) {
+    public void setDteres(final Date dteres) {
         this.dteres = dteres;
     }
 
-    public String getDtfres() {
+    public Date getDtfres() {
         return dtfres;
     }
 
-    public void setDtfres(final String dtfres) {
+    public void setDtfres(final Date dtfres) {
         this.dtfres = dtfres;
     }
 
