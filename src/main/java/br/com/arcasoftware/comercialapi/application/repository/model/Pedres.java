@@ -73,6 +73,8 @@ public class Pedres extends BaseEntity {
     private Double fatger;
     private Double devger;
     private Double sldger;
+    private Double totliq;
+    private Double totbrt;
     private Date dteres;
     private Date dtfres;
     private String uferes;
@@ -264,6 +266,14 @@ public class Pedres extends BaseEntity {
 
     public void setPedant(final String pedant) {
         this.pedant = pedant;
+    }
+
+    public Double getTotliq() {
+        return totliq;
+    }
+
+    public void setTotliq(final Double totliq) {
+        this.totliq = totliq;
     }
 
     @Override

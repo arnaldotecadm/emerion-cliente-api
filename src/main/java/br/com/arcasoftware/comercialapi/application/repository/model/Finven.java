@@ -14,4 +14,8 @@ import javax.persistence.UniqueConstraint;
 public class Finven extends BaseEntity {
     private long codven;
     private String nomven;
+    private String apeven;
+    private String emaven;
+    private String prfven;
+    private String fonven;
 }

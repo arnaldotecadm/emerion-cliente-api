@@ -1,6 +1,5 @@
 package br.com.arcasoftware.comercialapi.application.repository;
 
-import br.com.arcasoftware.comercialapi.application.repository.model.ClienteDocument;
 import br.com.arcasoftware.comercialapi.application.repository.model.Pedres;
 import br.com.arcasoftware.comercialapi.model.IPedRe2DTO;
 import br.com.arcasoftware.comercialapi.model.IPedResCab;
@@ -197,13 +196,6 @@ public interface PedResRepository extends CrudRepository<Pedres, Long> {
             "\n" +
             "FROM PEDRE2 PE2\n" +
             "\n" +
-            "join EstQte QTE on QTE.CodClp = PE2.CodClp\n" +
-            "     and QTE.CodGru = PE2.CodGru\n" +
-            "     and QTE.CodSub = PE2.CodSub\n" +
-            "     and QTE.CodPro = PE2.CodPro\n" +
-            "     and QTE.CodTam = PE2.CodTam\n" +
-            "     and QTE.CodCor = PE2.CodCor\n" +
-            "     and QTE.CodEmp = PE2.CodEmp\n" +
             "join EstPro on EstPro.CodClp = PE2.CodClp\n" +
             "     and EstPro.CodGru = PE2.CodGru\n" +
             "     and EstPro.CodSub = PE2.CodSub\n" +
@@ -212,7 +204,6 @@ public interface PedResRepository extends CrudRepository<Pedres, Long> {
             "     Where PE2.CodEmp = :codemp\n" +
             "     and PE2.DteRes = :dteres\n" +
             "     and PE2.NumRes = :numres\n" +
-            "     and (QTE.QtdQte - ((0) + QTE.QtdRma)) < 0\n" +
             "\n" +
             "union all\n" +
             "\n" +
@@ -261,13 +252,6 @@ public interface PedResRepository extends CrudRepository<Pedres, Long> {
             "\n" +
             "FROM PEDRE2 PE2\n" +
             "\n" +
-            "join EstQte QTE on QTE.CodClp = PE2.CodClp\n" +
-            "     and QTE.CodGru = PE2.CodGru\n" +
-            "     and QTE.CodSub = PE2.CodSub\n" +
-            "     and QTE.CodPro = PE2.CodPro\n" +
-            "     and QTE.CodTam = PE2.CodTam\n" +
-            "     and QTE.CodCor = PE2.CodCor\n" +
-            "     and QTE.CodEmp = PE2.CodEmp\n" +
             "join EstPro on EstPro.CodClp = PE2.CodClp\n" +
             "     and EstPro.CodGru = PE2.CodGru\n" +
             "     and EstPro.CodSub = PE2.CodSub\n" +
@@ -276,7 +260,6 @@ public interface PedResRepository extends CrudRepository<Pedres, Long> {
             "     Where PE2.CodEmp = :codemp\n" +
             "     and PE2.DteRes = :dteres\n" +
             "     and PE2.NumRes = :numres\n" +
-            "     and (QTE.QtdQte - ((0) + QTE.QtdRma)) >= 0\n" +
             "--ORDER BY 42 ASC")
     List<IReportPedRe2Detail> getReportPedRe2(@Param("codemp") Integer codemp, @Param("dteres") Date dteres, @Param("numres") Integer numres);
 

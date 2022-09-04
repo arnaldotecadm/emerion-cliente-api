@@ -14,4 +14,5 @@ import javax.persistence.UniqueConstraint;
 public class Finatd extends BaseEntity {
     private long codatd;
     private String nomatd;
+    private String apeatd;
 }

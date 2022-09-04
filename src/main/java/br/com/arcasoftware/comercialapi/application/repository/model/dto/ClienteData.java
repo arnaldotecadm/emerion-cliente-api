@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Date;
 import java.util.Calendar;
 
 @Getter
@@ -27,7 +28,7 @@ public class ClienteData {
     private Integer codven;
     private String cnae;
     private String indicEstrangeiro;
-    private Calendar dtncli;
+    private Date dtncli;
     private String tipoIndicacaoIE;
     private String inscMunicipal;
     private String obsCli;
@@ -599,11 +600,11 @@ public class ClienteData {
         this.indicEstrangeiro = indicEstrangeiro;
     }
 
-    public Calendar getDtncli() {
+    public Date getDtncli() {
         return dtncli;
     }
 
-    public void setDtncli(Calendar dtncli) {
+    public void setDtncli(Date dtncli) {
         this.dtncli = dtncli;
     }
 
