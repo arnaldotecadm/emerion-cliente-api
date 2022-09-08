@@ -6,6 +6,8 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 import java.util.Date;
 
@@ -75,6 +77,7 @@ public class Pedres extends BaseEntity {
     private Double sldger;
     private Double totliq;
     private Double totbrt;
+    @Temporal(TemporalType.DATE)
     private Date dteres;
     private Date dtfres;
     private String uferes;

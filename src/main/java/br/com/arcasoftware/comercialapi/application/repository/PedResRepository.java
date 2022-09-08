@@ -115,24 +115,24 @@ public interface PedResRepository extends CrudRepository<Pedres, Long> {
             "(P.TOTFRT + P.TOTSEG + P.TOTOUTDESP) TOTDESPESA,\n" +
             "P.ID_FRETE,\n" +
             "C.NOMCLI,\n" +
-            "V.APEVEN,\n" +
             "A.APEATD,\n" +
             "P.FLGFEC,\n" +
             "P.INSCLI,\n" +
-            "G.NOMEMP,\n" +
-            "G.CGCEMP,\n" +
-            "G.INSEMP,\n" +
             "T.NOMTRA,\n" +
             "T.CGCTRA,\n" +
             "T.CIDTRA,\n" +
             "T.SIGUFE UFETRA,\n" +
             "T.CEPTRA,\n" +
             "T.PRTTRA||'-'||T.FONTRA FONETRA,\n" +
-            "V.emaven,\n" +
             "F.DESCFRT,\n" +
+            "V.emaven,\n" +
+            "V.APEVEN,\n" +
             "V.PRFVEN||'-'||V.FONVEN TELEFONE,\n" +
             "CASE WHEN COALESCE(P.CODTRA, 0) > 0 THEN T.TENTRA ||' '|| T.ENDTRA ||', '|| T.NUMTRA || ' ' || T.BAITRA ELSE '' END ENDTRA,\n" +
             "P.TENCLI ||' '|| P.ENDCLI ||', '|| P.NUMCLI || ' ' || P.BAICLI ENDENT,\n" +
+            "G.NOMEMP,\n" +
+            "G.CGCEMP,\n" +
+            "G.INSEMP,\n" +
             "G.TENEMP ||' '|| G.ENDEMP ||', '|| G.NUMEMP || ' ' || G.BAIEMP END1,\n" +
             "G.CIDEMP ||' '|| G.SIGUFE ||' '|| G.CEPEMP END2,\n" +
             "'('||G.PRTEMP||')'||G.FONEMP FONE,\n" +
@@ -151,62 +151,6 @@ public interface PedResRepository extends CrudRepository<Pedres, Long> {
     IReportPedResHead getReportPedRes(@Param("numres") Integer numres);
 
     @Query(nativeQuery = true, value = "" +
-            "SELECT 'N' ATENDE,\n" +
-            "PE2.CODEMP,\n" +
-            "PE2.DTERES,\n" +
-            "PE2.NUMRES,\n" +
-            "PE2.SEQRE2,\n" +
-            "PE2.CODGRU||'.'||PE2.CODSUB||'.'||PE2.CODPRO PRODUTO,\n" +
-            "PE2.DESRE2,\n" +
-            "PE2.QTPRE2,\n" +
-            "PE2.VLQRE2,\n" +
-            "PE2.ICMRE2,\n" +
-            "PE2.TOTRE2,\n" +
-            "PE2.TOTREN,\n" +
-            "PE2.FLGVAL,\n" +
-            "PE2.FLGPAC,\n" +
-            "PE2.FLGLIB,\n" +
-            "PE2.CLSIPI,\n" +
-            "PE2.CODST1||PE2.CODST2 CST,\n" +
-            "PE2.CODCFO,\n" +
-            "PE2.CODUND,\n" +
-            "PE2.VLURE2,\n" +
-            "PE2.DSCRE2,\n" +
-            "PE2.MRGSUB, \n" +
-            "PE2.IPIRE2,\n" +
-            "PE2.TOTICM, \n" +
-            "PE2.TOTIPI,\n" +
-            "PE2.TOTSUB,\n" +
-            "PE2.DSRRE2,\n" +
-            "PE2.TOTDSR,\n" +
-            "PE2.OBSRE2,\n" +
-            "PE2.TOTFRT,\n" +
-            "PE2.TOTSEG,\n" +
-            "PE2.TOTOUTDESP,\n" +
-            "(PE2.TOTFRT + PE2.TOTSEG + PE2.TOTOUTDESP) TOTDESPESA,\n" +
-            "PE2.NUMPEDCOMPRA,\n" +
-            "PE2.NUMITEMCOMPRA,\n" +
-            "PE2.TOTGE2,\n" +
-            "PE2.TOTITETRB,\n" +
-            "estMrc.NOMMRC,\n" +
-            "estpro.QTDEMB,\n" +
-            "estpro.REFPRO,\n" +
-            "coalesce(estpro.LOCPRO,'') as LOCPRO,\n" +
-            "PE2.NRORE2\n" +
-            "\n" +
-            "FROM PEDRE2 PE2\n" +
-            "\n" +
-            "join EstPro on EstPro.CodClp = PE2.CodClp\n" +
-            "     and EstPro.CodGru = PE2.CodGru\n" +
-            "     and EstPro.CodSub = PE2.CodSub\n" +
-            "     and EstPro.CodPro = PE2.CodPro\n" +
-            "left join estmrc on estmrc.codmrc = estpro.codmrc\n" +
-            "     Where PE2.CodEmp = :codemp\n" +
-            "     and PE2.DteRes = :dteres\n" +
-            "     and PE2.NumRes = :numres\n" +
-            "\n" +
-            "union all\n" +
-            "\n" +
             "SELECT 'S' ATENDE,\n" +
             "PE2.CODEMP,\n" +
             "PE2.DTERES,\n" +

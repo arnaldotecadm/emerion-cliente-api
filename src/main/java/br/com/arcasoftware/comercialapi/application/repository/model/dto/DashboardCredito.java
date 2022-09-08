@@ -10,6 +10,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DashboardCredito {
+    private String cnpjEmpresa;
+    private long codcli;
     private int codemp;
     private String dtecde;
     private int seqcde;

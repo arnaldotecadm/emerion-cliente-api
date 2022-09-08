@@ -10,6 +10,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Endereco {
+    private String cnpjEmpresa;
+    private long codcli;
     private String tipo;
     private String cefcli;
     private String tefcli;

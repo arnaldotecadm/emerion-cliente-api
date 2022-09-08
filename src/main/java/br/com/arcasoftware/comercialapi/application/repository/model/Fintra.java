@@ -15,7 +15,6 @@ public class Fintra extends BaseEntity {
     private String nomtra;
     private String cgctra;
     private String cidtra;
-    private String ufetra;
     private String ceptra;
     private String prttra;
     private String fontra;

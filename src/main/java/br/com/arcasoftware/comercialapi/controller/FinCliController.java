@@ -1,8 +1,8 @@
 package br.com.arcasoftware.comercialapi.controller;
 
 import br.com.arcasoftware.comercialapi.application.repository.model.dto.ClienteData;
-import br.com.arcasoftware.comercialapi.application.repository.model.dto.EnderecoCompleto;
-import br.com.arcasoftware.comercialapi.application.repository.model.dto.InformacaoTelaInicial;
+import br.com.arcasoftware.comercialapi.application.repository.model.dto.DashboardCredito;
+import br.com.arcasoftware.comercialapi.application.repository.model.dto.Endereco;
 import br.com.arcasoftware.comercialapi.application.service.FinCliService;
 import br.com.arcasoftware.comercialapi.model.dto.IFinCliDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,22 +35,22 @@ public class FinCliController {
     }
 
     @PostMapping()
-    public void save(@RequestBody @NotNull @Valid ClienteData clienteData){
+    public void save(@RequestBody @NotNull @Valid ClienteData clienteData) {
         System.out.println(clienteData);
         this.service.save(clienteData);
     }
 
     @PostMapping("informacoes-tela-inicial")
-    public String saveInformacoesTelaInicial(@RequestBody @NotNull @Valid InformacaoTelaInicial informacaoTelaInicial){
+    public String saveInformacoesTelaInicial(@RequestBody @NotNull @Valid DashboardCredito informacaoTelaInicial) {
         System.out.println(informacaoTelaInicial);
         this.service.saveInformacaoTelaInicial(informacaoTelaInicial);
         return "Funcionou";
     }
 
     @PostMapping("endereco")
-    public void saveEnderecos(@RequestBody @NotNull @Valid EnderecoCompleto enderecoCompleto){
-        System.out.println(enderecoCompleto);
-        this.service.saveEnderecoCompleto(enderecoCompleto);
+    public void saveEnderecos(@RequestBody @NotNull @Valid Endereco end) {
+        System.out.println(end);
+        this.service.saveEnderecoCompleto(end);
     }
 
 }

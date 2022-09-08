@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -16,6 +18,7 @@ import java.util.Date;
 public class Pedre2 extends BaseEntity {
     private long numres;
     private Integer codemp;
+    @Temporal(TemporalType.DATE)
     private Date dteres;
     private Integer seqre2;
     private String flgval;
