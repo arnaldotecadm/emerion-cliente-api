@@ -40,7 +40,8 @@ public interface PedResRepository extends CrudRepository<Pedres, Long> {
             " 'NAO' as possuiNFe"
             + " from Pedres p " +
             //" LEFT JOIN FATPED fat ON fat.numres = p.numres AND p.dteres = fat.dteres AND fat.CODEMP  = p.CODEMP " +
-            " where p.codcli = :codcli")
+            " where p.codcli = :codcli" +
+            " order by p.dteres desc")
     List<IPedResDTO> getCabecalhoPedidoListByCodcli(Integer codcli);
 
     @Query(nativeQuery = true, value = "SELECT res.numres, res.TOTRES, res.TOTIPI, res.totsub, res.TOTDESCINC, res.totger, res.totren, res.codcli, res.obsres, res.pedant FROM pedres res where res.numres = :numres")
