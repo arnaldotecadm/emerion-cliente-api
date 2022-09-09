@@ -4,12 +4,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.Table;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "fintra")
+@Table(
+        name = "fintra",
+        indexes = @Index(name = "fintra_codtra", columnList = "codtra"))
 public class Fintra extends BaseEntity {
     private long codtra;
     private String nomtra;

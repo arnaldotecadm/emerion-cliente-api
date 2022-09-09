@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -14,7 +15,10 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "pedre2", uniqueConstraints = {@UniqueConstraint(columnNames = {"cnpjEmpresa", "numres", "codgru", "codsub", "codpro"})})
+@Table(
+        name = "pedre2",
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"cnpjEmpresa", "numres", "codgru", "codsub", "codpro"})},
+        indexes = @Index(name = "pedre2_numres", columnList = "numres"))
 public class Pedre2 extends BaseEntity {
     private long numres;
     private Integer codemp;
