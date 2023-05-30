@@ -77,7 +77,7 @@ public class Pedres extends BaseEntity {
     private Double totren;
     private Double totipi;
     private Double totsub;
-    private Double TOTDESCINC;
+    private Double totdescinc;
     private String pedant;
     private Double fatger;
     private Double devger;
@@ -92,7 +92,7 @@ public class Pedres extends BaseEntity {
     private String sitres;
     private String obsres;
     private String obspro;
-    private int qtdimp;
+    private Integer qtdimp;
 
     public long getCodcli() {
         return codcli;
@@ -262,12 +262,12 @@ public class Pedres extends BaseEntity {
         this.totsub = totsub;
     }
 
-    public Double getTOTDESCINC() {
-        return TOTDESCINC;
+    public Double getTotdescinc() {
+        return totdescinc;
     }
 
-    public void setTOTDESCINC(final Double TOTDESCINC) {
-        this.TOTDESCINC = TOTDESCINC;
+    public void setTotdescinc(final Double TOTDESCINC) {
+        this.totdescinc = TOTDESCINC;
     }
 
     public String getPedant() {

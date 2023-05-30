@@ -2,9 +2,6 @@ package br.com.arcasoftware.comercialapi.application.service;
 
 import br.com.arcasoftware.comercialapi.application.repository.PedResRepository;
 import br.com.arcasoftware.comercialapi.application.repository.model.Pedres;
-import br.com.arcasoftware.comercialapi.model.IPedRe2DTO;
-import br.com.arcasoftware.comercialapi.model.IPedResCab;
-import br.com.arcasoftware.comercialapi.model.IPedResDTO;
 import br.com.arcasoftware.comercialapi.model.IReportPedRe2Detail;
 import br.com.arcasoftware.comercialapi.model.IReportPedResHead;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,32 +21,6 @@ public class PedResService {
         this.repository = repository;
     }
 
-    Optional<Pedres> getByNumres(long numres) {
-        return this.repository.findByNumres(numres);
-    }
-
-    public void save(Pedres data) {
-        Optional<Pedres> byNumres = this.getByNumres(data.getNumres());
-
-        if (byNumres.isPresent()) {
-            data.setId(byNumres.get().getId());
-        }
-
-        this.repository.save(data);
-    }
-
-    public List<IPedResDTO> getCabecalhoPedidoList(Integer recordCount) {
-        return repository.getCabecalhoPedidoList(recordCount);
-    }
-
-    public IPedResCab getCabecalhoPedido(int numres) {
-        return repository.getCabecalhoPedido(numres);
-    }
-
-    public List<IPedResDTO> getCabecalhoPedidoListByCodcli(Integer codcli) {
-        return repository.getCabecalhoPedidoListByCodcli(codcli);
-    }
-
     public byte[] getNfePedido(Integer numres) {
         return this.repository.getNfePedido(numres);
     }
@@ -60,10 +31,6 @@ public class PedResService {
 
     public List<IReportPedRe2Detail> getReportPedRe2(Integer codemp, Date dteres, Integer numres) {
         return this.repository.getReportPedRe2(codemp, dteres, numres);
-    }
-
-    public List<IPedRe2DTO> getDetalhesPedido(int numres) {
-        return repository.getDetalhesPedido(numres);
     }
 
 }

@@ -1,12 +1,8 @@
 package br.com.arcasoftware.comercialapi.controller;
 
 import br.com.arcasoftware.comercialapi.application.exception.ValidationException;
-import br.com.arcasoftware.comercialapi.application.repository.model.Pedres;
 import br.com.arcasoftware.comercialapi.application.service.PedResService;
 import br.com.arcasoftware.comercialapi.application.service.ReportService;
-import br.com.arcasoftware.comercialapi.model.IPedRe2DTO;
-import br.com.arcasoftware.comercialapi.model.IPedResCab;
-import br.com.arcasoftware.comercialapi.model.IPedResDTO;
 import br.com.arcasoftware.comercialapi.model.IReportPedRe2Detail;
 import br.com.arcasoftware.comercialapi.model.IReportPedResHead;
 import br.com.arcasoftware.comercialapi.model.ReportFull;
@@ -20,13 +16,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -47,26 +39,6 @@ public class PedResController {
     public PedResController(PedResService service, ReportService reportService) {
         this.service = service;
         this.reportService = reportService;
-    }
-
-    @GetMapping(value = {"cabecalho-pedido"})
-    public List<IPedResDTO> getCabecalhoPedidoList() {
-        return service.getCabecalhoPedidoList(99999);
-    }
-
-    @GetMapping(value = {"cabecalho-pedido-cliente/{codcli}"})
-    public List<IPedResDTO> getCabecalhoPedidoListByCliente(@PathVariable("codcli") Integer codcli) {
-        return service.getCabecalhoPedidoListByCodcli(codcli);
-    }
-
-    @GetMapping(value = {"cabecalho-pedido/{numres}"})
-    public IPedResCab getCabecalhoPedido(@PathVariable("numres") int numres) {
-        return service.getCabecalhoPedido(numres);
-    }
-
-    @GetMapping(value = {"detalhe-pedido/{numres}"})
-    public List<IPedRe2DTO> getDetalhesPedido(@PathVariable("numres") int numres) {
-        return service.getDetalhesPedido(numres);
     }
 
     @GetMapping(path = "impressao_pedido/{codemp}/{dteres}/{numres}")
@@ -93,8 +65,4 @@ public class PedResController {
 
     }
 
-    @PostMapping("")
-    public void save(@RequestBody @NotNull @Valid Pedres data) {
-        this.service.save(data);
-    }
 }
