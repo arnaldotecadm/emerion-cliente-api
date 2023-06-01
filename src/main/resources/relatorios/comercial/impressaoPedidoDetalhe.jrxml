@@ -14,23 +14,23 @@
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
-	<field name="PRODUTO" class="java.lang.String"/>
-	<field name="DESRE2" class="java.lang.String"/>
-	<field name="TOTGE2" class="java.math.BigDecimal"/>
-	<field name="TOTDSR" class="java.math.BigDecimal"/>
-	<field name="TOTDESPESA" class="java.math.BigDecimal"/>
-	<field name="TOTSUB" class="java.math.BigDecimal"/>
-	<field name="MRGSUB" class="java.math.BigDecimal"/>
-	<field name="TOTIPI" class="java.math.BigDecimal"/>
-	<field name="IPIRE2" class="java.math.BigDecimal"/>
-	<field name="TOTICM" class="java.math.BigDecimal"/>
-	<field name="ICMRE2" class="java.math.BigDecimal"/>
-	<field name="DSCRE2" class="java.math.BigDecimal"/>
-	<field name="VLURE2" class="java.math.BigDecimal"/>
-	<field name="CODUND" class="java.lang.String"/>
-	<field name="CODCFO" class="java.lang.String"/>
-	<field name="CST" class="java.lang.String"/>
-	<field name="CLSIPI" class="java.lang.String"/>
+	<field name="produto" class="java.lang.String"/>
+	<field name="desre2" class="java.lang.String"/>
+	<field name="totge2" class="java.lang.Double"/>
+	<field name="totdsr" class="java.lang.Double"/>
+	<field name="totdespesa" class="java.lang.Double"/>
+	<field name="totsub" class="java.lang.Double"/>
+	<field name="mrgsub" class="java.lang.Double"/>
+	<field name="totipi" class="java.lang.Double"/>
+	<field name="ipire2" class="java.lang.Double"/>
+	<field name="toticm" class="java.lang.Double"/>
+	<field name="icmre2" class="java.lang.Double"/>
+	<field name="dscre2" class="java.lang.Double"/>
+	<field name="vlure2" class="java.lang.Double"/>
+	<field name="codund" class="java.lang.String"/>
+	<field name="codcfo" class="java.lang.String"/>
+	<field name="cst" class="java.lang.String"/>
+	<field name="clsipi" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -254,7 +254,7 @@
 				<textElement>
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{PRODUTO}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{produto}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement stretchType="ContainerHeight" x="42" y="0" width="177" height="15" uuid="015f6ec6-5fb8-4364-b1fe-dc235cafca09">
@@ -268,7 +268,7 @@
 				<textElement>
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{DESRE2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{desre2}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="658" y="0" width="34" height="15" uuid="f0ed8a71-e547-4770-8c28-6a08c6041398">
@@ -286,7 +286,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TOTDESPESA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{totdespesa}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="730" y="0" width="34" height="15" uuid="c0596249-686e-40e5-802e-e516eaf1a139">
@@ -304,7 +304,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TOTGE2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{totge2}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="694" y="0" width="34" height="15" uuid="c4f7f4f0-9d1c-48fb-a250-6bd95fcfd41e">
@@ -322,7 +322,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TOTDSR}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{totdsr}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="622" y="0" width="34" height="15" uuid="74747947-9771-42a6-9b71-b1e2035ed1a4">
@@ -340,7 +340,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TOTSUB}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{totsub}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="598" y="0" width="22" height="15" uuid="472b65c7-5b4d-4ee3-b78e-50c979deb859">
@@ -358,7 +358,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{MRGSUB}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{mrgsub}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="562" y="0" width="34" height="15" uuid="44f0f00a-418c-4a1a-9430-8637b99cf874">
@@ -376,7 +376,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TOTIPI}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{totipi}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="538" y="0" width="22" height="15" uuid="ccf95f43-4707-4075-a4ec-b0020560b6ed">
@@ -394,7 +394,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{IPIRE2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ipire2}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="502" y="0" width="34" height="15" uuid="c621848e-5544-47e7-a0b9-b77aa7e37baf">
@@ -412,7 +412,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TOTICM}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{toticm}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="478" y="0" width="22" height="15" uuid="ab174a1c-fe34-450e-86a6-7d25ff154b7c">
@@ -430,7 +430,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{ICMRE2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{icmre2}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="766" y="0" width="34" height="15" uuid="26bec74d-bdbb-45c1-aa0a-47286e6bafa8">
@@ -448,7 +448,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TOTGE2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{totge2}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="442" y="0" width="34" height="15" uuid="0e439ee8-672f-403c-8e5a-ada44d36cd67">
@@ -466,7 +466,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TOTICM}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{toticm}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="418" y="0" width="22" height="15" uuid="c2d0b9a5-a5a4-4864-904e-08161bcfeadd">
@@ -484,7 +484,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{DSCRE2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{dscre2}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="382" y="0" width="34" height="15" uuid="fc64f076-d2d7-4a20-a38d-a004ce2588c1">
@@ -502,7 +502,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{VLURE2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{vlure2}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="346" y="0" width="34" height="15" uuid="ac9db38b-de76-4ddb-99bf-4e43d23002a2">
@@ -520,7 +520,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{VLURE2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{vlure2}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="324" y="0" width="20" height="15" uuid="3e5a1a54-fee5-45a5-9a12-6d62428b228e">
@@ -538,7 +538,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{CODUND}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{codund}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="288" y="0" width="32" height="15" uuid="f2bb89ec-6474-4da3-b821-bd8a065f5907">
@@ -555,7 +555,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{CODCFO}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{codcfo}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="262" y="0" width="26" height="15" uuid="2a64163e-07f6-4d51-90a0-a4e604b88ec9">
@@ -573,7 +573,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{CST}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cst}]]></textFieldExpression>
 			</textField>
 			<textField textAdjust="ScaleFont">
 				<reportElement x="220" y="0" width="42" height="15" uuid="4fff0499-2206-4647-b151-d0985545eeb3">
@@ -591,7 +591,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{CLSIPI}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{clsipi}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

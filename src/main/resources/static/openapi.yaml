@@ -350,6 +350,26 @@ paths:
               schema:
                 $ref: "#/components/schemas/CustomerOrderDetailSummaryDTOList"
 
+  /customer-order/report:
+    post:
+      tags:
+        - CustomerOrder
+      description: post a customer order report data into the database
+      operationId: saveCustomerOrderReportInfo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CustomerOrderReportDTO"
+      responses:
+        201:
+          description: Customer order detail successfully created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomerOrderReportDTO"
+
 components:
   schemas:
   ### Complex types
@@ -589,3 +609,133 @@ components:
           $ref: "#/components/schemas/Double"
         totger:
           $ref: "#/components/schemas/Double"
+    CustomerOrderReportDTO:
+      type: object
+      properties:
+        id:
+          $ref: "#/components/schemas/Identifier"
+        cnpjEmpresa:
+          type: string
+        codcli:
+          type: string
+        nomemp:
+          type: string
+        end1:
+          type: string
+        end2:
+          type: string
+        webemp:
+          type: string
+        emaemp:
+          type: string
+        numres:
+          type: string
+        nomcli:
+          type: string
+        endent:
+          type: string
+        dteres:
+          $ref: "#/components/schemas/Instant"
+        apeven:
+          type: string
+        cgcemp:
+          type: string
+        insemp:
+          type: string
+        dtfres:
+          $ref: "#/components/schemas/Instant"
+        idFrete:
+          type: integer
+        descfrt:
+          type: string
+        telefone:
+          type: string
+        emaven:
+          type: string
+        cgccli:
+          type: string
+        cidcli:
+          type: string
+        inscli:
+          type: string
+        ufecli:
+          type: string
+        cepcli:
+          type: string
+        nomtra:
+          type: string
+        endtra:
+          type: string
+        cgctra:
+          type: string
+        cidtra:
+          type: string
+        fonetra:
+          type: string
+        ufetra:
+          type: string
+        ceptra:
+          type: string
+        totres:
+          $ref: "#/components/schemas/Double"
+        totipi:
+          $ref: "#/components/schemas/Double"
+        totsub:
+          $ref: "#/components/schemas/Double"
+        toticm:
+          $ref: "#/components/schemas/Double"
+        totger:
+          $ref: "#/components/schemas/Double"
+        obsres:
+          type: string
+        items:
+          $ref: "#/components/schemas/CustomerOrderReportItemListDTO"
+    CustomerOrderReportItemListDTO:
+      type: array
+      items:
+        $ref: "#/components/schemas/CustomerOrderReportItemDTO"
+    CustomerOrderReportItemDTO:
+      type: object
+      properties:
+        id:
+          $ref: "#/components/schemas/Identifier"
+        produto:
+          type: string
+        desre2:
+          type: string
+        totge2:
+          $ref: "#/components/schemas/Double"
+        totdsr:
+          $ref: "#/components/schemas/Double"
+        totdespesa:
+          $ref: "#/components/schemas/Double"
+        totsub:
+          $ref: "#/components/schemas/Double"
+        mrgsub:
+          $ref: "#/components/schemas/Double"
+        totipi:
+          $ref: "#/components/schemas/Double"
+        ipire2:
+          $ref: "#/components/schemas/Double"
+        toticm:
+          $ref: "#/components/schemas/Double"
+        icmre2:
+          $ref: "#/components/schemas/Double"
+        dscre2:
+          $ref: "#/components/schemas/Double"
+        vlure2:
+          $ref: "#/components/schemas/Double"
+        vlqre2:
+          $ref: "#/components/schemas/Double"
+        qtpre2:
+          $ref: "#/components/schemas/Double"
+        totre2:
+          $ref: "#/components/schemas/Double"
+        codund:
+          type: string
+        codcfo:
+          type: string
+        cst:
+          type: string
+        clsipi:
+          type: string

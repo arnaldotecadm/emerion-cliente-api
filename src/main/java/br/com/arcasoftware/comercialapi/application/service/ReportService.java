@@ -15,8 +15,10 @@ public class ReportService {
 
 	public ByteArrayOutputStream impressaoPedido(List<?> dados) throws IOException, JRException {
 		InputStream file = new ClassPathResource("relatorios/comercial/impressaoPedido.jrxml").getInputStream();
+		InputStream subReport = new ClassPathResource("relatorios/comercial/impressaoPedidoDetalhe.jrxml").getInputStream();
 		JRPropertiesUtil.asBoolean("net.sf.jasperreports.awt.ignore.missing.font", true);
 		JasperReport jasperReport = JasperCompileManager.compileReport(file);
+		JasperCompileManager.compileReport(subReport);
 		JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(dados);
 		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, dataSource);
 		

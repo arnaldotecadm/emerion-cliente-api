@@ -14,41 +14,41 @@
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
-	<field name="pedres.NOMEMP" class="java.lang.String"/>
-	<field name="pedres.END1" class="java.lang.String"/>
-	<field name="pedres.END2" class="java.lang.String"/>
-	<field name="pedres.WEBEMP" class="java.lang.String"/>
-	<field name="pedres.EMAEMP" class="java.lang.String"/>
-	<field name="pedres.NUMRES" class="java.lang.Integer"/>
-	<field name="pedres.CODCLI" class="java.lang.Integer"/>
-	<field name="pedres.NOMCLI" class="java.lang.String"/>
-	<field name="pedres.ENDENT" class="java.lang.String"/>
-	<field name="pedres.DTERES" class="java.util.Date"/>
-	<field name="pedres.APEVEN" class="java.lang.String"/>
-	<field name="pedres.CGCEMP" class="java.lang.String"/>
-	<field name="pedres.INSEMP" class="java.lang.String"/>
-	<field name="pedres.DTFRES" class="java.util.Date"/>
-	<field name="pedres.DESCFRT" class="java.lang.String"/>
-	<field name="pedres.TELEFONE" class="java.lang.String"/>
-	<field name="pedres.EMAVEN" class="java.lang.String"/>
-	<field name="pedres.CGCCLI" class="java.lang.String"/>
-	<field name="pedres.CIDCLI" class="java.lang.String"/>
-	<field name="pedres.INSCLI" class="java.lang.String"/>
-	<field name="pedres.UFECLI" class="java.lang.String"/>
-	<field name="pedres.CEPCLI" class="java.lang.String"/>
-	<field name="pedres.NOMTRA" class="java.lang.String"/>
-	<field name="pedres.ENDTRA" class="java.lang.String"/>
-	<field name="pedres.CGCTRA" class="java.lang.String"/>
-	<field name="pedres.CIDTRA" class="java.lang.String"/>
-	<field name="pedres.FONETRA" class="java.lang.String"/>
-	<field name="pedres.UFETRA" class="java.lang.String"/>
-	<field name="pedres.CEPTRA" class="java.lang.String"/>
-	<field name="pedres.TOTRES" class="java.math.BigDecimal"/>
-	<field name="pedres.TOTIPI" class="java.math.BigDecimal"/>
-	<field name="pedres.TOTSUB" class="java.math.BigDecimal"/>
-	<field name="pedres.TOTICM" class="java.math.BigDecimal"/>
-	<field name="pedres.TOTGER" class="java.math.BigDecimal"/>
-	<field name="pedres.OBSRES" class="java.lang.String"/>
+	<field name="pedres.nomemp" class="java.lang.String"/>
+	<field name="pedres.end1" class="java.lang.String"/>
+	<field name="pedres.end2" class="java.lang.String"/>
+	<field name="pedres.webemp" class="java.lang.String"/>
+	<field name="pedres.emaemp" class="java.lang.String"/>
+	<field name="pedres.numres"/>
+	<field name="pedres.codcli"/>
+	<field name="pedres.nomcli" class="java.lang.String"/>
+	<field name="pedres.endent" class="java.lang.String"/>
+	<field name="pedres.dteres" class="java.time.Instant"/>
+	<field name="pedres.apeven" class="java.lang.String"/>
+	<field name="pedres.cgcemp" class="java.lang.String"/>
+	<field name="pedres.insemp" class="java.lang.String"/>
+	<field name="pedres.dtfres" class="java.time.Instant"/>
+	<field name="pedres.descfrt" class="java.lang.String"/>
+	<field name="pedres.telefone" class="java.lang.String"/>
+	<field name="pedres.emaven" class="java.lang.String"/>
+	<field name="pedres.cgccli" class="java.lang.String"/>
+	<field name="pedres.cidcli" class="java.lang.String"/>
+	<field name="pedres.inscli" class="java.lang.String"/>
+	<field name="pedres.ufecli" class="java.lang.String"/>
+	<field name="pedres.cepcli" class="java.lang.String"/>
+	<field name="pedres.nomtra" class="java.lang.String"/>
+	<field name="pedres.endtra" class="java.lang.String"/>
+	<field name="pedres.cgctra" class="java.lang.String"/>
+	<field name="pedres.cidtra" class="java.lang.String"/>
+	<field name="pedres.fonetra" class="java.lang.String"/>
+	<field name="pedres.ufetra" class="java.lang.String"/>
+	<field name="pedres.ceptra" class="java.lang.String"/>
+	<field name="pedres.totres" class="java.lang.Double"/>
+	<field name="pedres.totipi" class="java.lang.Double"/>
+	<field name="pedres.totsub" class="java.lang.Double"/>
+	<field name="pedres.toticm" class="java.lang.Double"/>
+	<field name="pedres.totger" class="java.lang.Double"/>
+	<field name="pedres.obsres" class="java.lang.String"/>
 	<field name="pedre2" class="java.util.List"/>
 	<background>
 		<band splitType="Stretch"/>
@@ -63,35 +63,35 @@
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{pedres.NOMEMP}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.nomemp}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="39" width="330" height="15" uuid="da808ee8-044a-4698-8205-2b23e2582eed">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.END1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.end1}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="54" width="330" height="15" uuid="74c3b080-3ea4-4991-bbbd-f7fb6e07c418">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.END2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.end2}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="69" width="330" height="15" uuid="f994e488-ef6f-49b2-9ced-680d83fda7e2">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.WEBEMP}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.webemp}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="84" width="330" height="15" uuid="1e2f23b4-88ce-4c6a-ad99-8b07685b68af">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.EMAEMP}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.emaemp}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="99" width="450" height="17" uuid="9e38c9c1-fcf0-4c18-9d17-ebbf5385e992">
@@ -101,7 +101,7 @@
 				<textElement verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Nº Pedido: " + $F{pedres.NUMRES} + " Emitido: " + new SimpleDateFormat("dd/MM/yyyy").format($F{pedres.DTERES}) + " Vendedor: " + $F{pedres.APEVEN}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Nº Pedido: " + $F{pedres.numres} + " Emitido: " + new SimpleDateFormat("dd/MM/yyyy").format(java.sql.Timestamp.from($F{pedres.dteres})) + " Vendedor: " + $F{pedres.apeven}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="116" width="40" height="15" uuid="9f05ee5d-370b-442b-9f3a-4f1784699280">
@@ -128,35 +128,35 @@
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA["CNPJ: " + $F{pedres.CGCEMP}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["CNPJ: " + $F{pedres.cgcemp}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="461" y="39" width="330" height="15" uuid="6eb99c36-c642-4787-b7e6-fedb150eb1ec">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA["I.E.: " + $F{pedres.INSEMP}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["I.E.: " + $F{pedres.insemp}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="461" y="54" width="330" height="15" uuid="e67c3bd9-2506-4dbd-a756-8ab26a5f4548">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA["Data de Entrega: " + new SimpleDateFormat("dd/MM/yyyy").format($F{pedres.DTFRES})]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Data de Entrega: " + new SimpleDateFormat("dd/MM/yyyy").format(java.sql.Timestamp.from($F{pedres.dtfres}))]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="461" y="69" width="330" height="15" uuid="bda9ea11-0c84-495c-adc0-fc5543e4b5c3">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA["Tipo de Frete: " + " - " + $F{pedres.DESCFRT}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Tipo de Frete: " + " - " + $F{pedres.descfrt}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="461" y="84" width="330" height="15" uuid="9ce9742b-fd2a-4ea5-928b-f5be6cdd36a7">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA["Tel.: " + $F{pedres.TELEFONE} + " Email: " + $F{pedres.EMAVEN}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Tel.: " + $F{pedres.telefone} + " Email: " + $F{pedres.emaven}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="380" y="115" width="70" height="15" uuid="ba430c96-af5f-45b8-8a66-efb61b909891">
@@ -166,7 +166,7 @@
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["CPF/CNPJ: " + $F{pedres.CGCCLI}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["CPF/CNPJ: " + $F{pedres.cgccli}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="380" y="130" width="70" height="15" uuid="2c4d10a0-67c3-46db-ba57-4f591c7fcf45">
@@ -186,7 +186,7 @@
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Inscrição Estadual: " + $F{pedres.INSCLI}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Inscrição Estadual: " + $F{pedres.inscli}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="630" y="130" width="24" height="15" uuid="3d450d43-af7a-47fe-bfbc-5b78894ff6cc">
@@ -213,35 +213,35 @@
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.CEPCLI}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.cepcli}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="700" y="115" width="90" height="15" uuid="5e913845-2c5b-4150-9698-a46be96ee0ec">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.INSCLI}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.inscli}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="450" y="115" width="120" height="15" uuid="d3c354c9-4cce-472f-9bd3-a24b2677555f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.CGCCLI}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.cgccli}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="655" y="130" width="30" height="15" uuid="75aaa86c-f25d-4613-8d1a-0cb22617a51d">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.UFECLI}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.ufecli}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="450" y="130" width="160" height="15" uuid="226c1141-b93e-465c-afe1-dcba852c5d4d">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.CIDCLI}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.cidcli}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="692" y="0" width="100" height="15" uuid="98f178c7-4e1e-4f38-b4ea-05e3a39c3161">
@@ -272,14 +272,14 @@
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.CODCLI} + " - " +  $F{pedres.NOMCLI}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.codcli} + " - " +  $F{pedres.nomcli}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="50" y="131" width="280" height="15" uuid="3746169b-8266-4438-bfd6-9d82bdf12efa">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.ENDENT}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.endent}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="380" y="151" width="70" height="15" uuid="28d94590-122d-4a0f-ac84-cde521b2d282">
@@ -336,35 +336,35 @@
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.CEPTRA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.ceptra}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="655" y="151" width="90" height="15" uuid="76417f08-b12f-4b6a-8d6c-8ed7dea980f7">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.FONETRA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.fonetra}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="450" y="151" width="120" height="15" uuid="a634b910-99d3-417e-bb92-541c052ee6d4">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.CGCTRA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.cgctra}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="655" y="166" width="30" height="15" uuid="d9de1deb-8d9e-4fcd-881f-dee190b90d80">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.UFETRA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.ufetra}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="450" y="166" width="160" height="15" uuid="8e6196c0-b5db-4eee-bcc3-d9d3c48b8dd2">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.CIDTRA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.cidtra}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="151" width="100" height="15" uuid="1bc6deb7-1b97-48f6-8941-6a31f43e8304">
@@ -391,14 +391,14 @@
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.NOMTRA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.nomtra}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="70" y="166" width="260" height="15" uuid="a9ed96ff-1fb5-4453-987d-e18a9f4345c2">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dadfa04e-3783-4aab-ade4-352dde638fb0"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{pedres.ENDTRA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.endtra}]]></textFieldExpression>
 			</textField>
 			<rectangle>
 				<reportElement x="0" y="183" width="802" height="1" uuid="0135f467-ec32-4bea-b342-94628dd0a4cc">
@@ -448,7 +448,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{pedres.TOTRES}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.totres}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="595" y="30" width="120" height="15" uuid="913ee263-98b8-401e-ba8a-491d21d2e9c0">
@@ -466,7 +466,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{pedres.TOTIPI}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.totipi}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="595" y="45" width="120" height="15" uuid="7b59c44b-4d20-4152-b9ea-23dc7e504428">
@@ -484,7 +484,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{pedres.TOTSUB}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.totsub}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="595" y="60" width="120" height="15" uuid="e71f8d4f-3d65-456f-b736-c559acd95de3">
@@ -502,7 +502,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{pedres.TOTICM}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.toticm}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="595" y="75" width="120" height="15" uuid="46423924-1633-4e58-82ca-2cec69e50302">
@@ -542,7 +542,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{pedres.TOTGER}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.totger}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="280" y="30" width="310" height="75" uuid="afb5c34c-6da3-4bfc-ba10-7583e3416aa1">
@@ -550,7 +550,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{pedres.OBSRES}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pedres.obsres}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="240" y="30" width="40" height="15" uuid="20052596-9b7f-491c-b80a-068513bc1948">

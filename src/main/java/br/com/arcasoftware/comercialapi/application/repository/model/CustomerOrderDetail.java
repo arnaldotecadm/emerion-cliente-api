@@ -26,4 +26,21 @@ public class CustomerOrderDetail extends BaseEntityV2 {
     private Double vlqre2;
     private Double qtpre2;
     private Double totre2;
+
+    private String produto;
+    private Double totge2;
+    private Double totdsr;
+    private Double totdespesa;
+    private Double totsub;
+    private Double mrgsub;
+    private Double totipi;
+    private Double ipire2;
+    private Double toticm;
+    private Double icmre2;
+    private Double dscre2;
+    private Double vlure2;
+    private String codund;
+    private String codcfo;
+    private String cst;
+    private String clsipi;
 }

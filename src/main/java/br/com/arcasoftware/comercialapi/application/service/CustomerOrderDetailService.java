@@ -28,7 +28,7 @@ public class CustomerOrderDetailService {
         return this.customerOrderDetailRepository.findByCnpjEmpresaAndCodcli(cnpjEmprsa, codcli);
     }
 
-    public List<CustomerOrderDetail> findByCustomerOrder(UUID customerOrder) {
+    public List<CustomerOrderDetail> getByCustomerOrder(UUID customerOrder) {
         return this.customerOrderDetailRepository.findByCustomerOrder(customerOrder);
     }
 }

@@ -8,15 +8,18 @@ import br.com.arcasoftware.comercialapi.application.service.CustomerOrderDetailS
 import br.com.arcasoftware.comercialapi.application.service.CustomerOrderService;
 import br.com.arcasoftware.comercialapi.mapper.CustomerOrderDetailMapper;
 import br.com.arcasoftware.comercialapi.mapper.CustomerOrderMapper;
+import br.com.arcasoftware.comercialapi.mapper.CustomerOrderReportMapper;
 import br.com.arcasoftware.customerapi.controller.CustomerOrderApi;
 import br.com.arcasoftware.customerapi.model.CustomerOrderDetailSummaryDTO;
 import br.com.arcasoftware.customerapi.model.CustomerOrderHeaderDTO;
+import br.com.arcasoftware.customerapi.model.CustomerOrderReportDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -74,6 +77,23 @@ public class CustomerOrderController implements CustomerOrderApi {
     }
 
     @Override
+    public ResponseEntity<CustomerOrderReportDTO> saveCustomerOrderReportInfo(CustomerOrderReportDTO customerOrderReportDTO) {
+        CustomerOrder customerOrder = CustomerOrderReportMapper.toDatabaseCustomerOrderEntity(customerOrderReportDTO);
+        List<CustomerOrderDetail> customerOrderDetailList = CustomerOrderReportMapper.toDatabaseCustomerOrderDetailEntity(customerOrderReportDTO);
+        CustomerOrder order = this.customerOrderService.save(customerOrder);
+        List<CustomerOrderDetail> orderDetailList = new ArrayList<>();
+        for (CustomerOrderDetail cod : customerOrderDetailList) {
+            cod.setCustomerOrder(order.getId());
+            cod.setCnpjEmpresa(order.getCnpjEmpresa());
+            cod.setCodcli(order.getCodcli());
+            CustomerOrderDetail orderDetail = this.customerOrderDetailService.save(cod);
+            orderDetailList.add(orderDetail);
+        }
+        CustomerOrderReportDTO orderReportDTO = CustomerOrderReportMapper.toDomainEntity(order, orderDetailList);
+        return ResponseEntity.ok(orderReportDTO);
+    }
+
+    @Override
     public ResponseEntity<List<CustomerOrderDetailSummaryDTO>> getAllCustomerOrderDetail() {
         List<CustomerOrderDetail> orderDetailList = this.customerOrderDetailService.getAll();
         List<CustomerOrderDetailSummaryDTO> summaryDTOList = orderDetailList
@@ -96,7 +116,7 @@ public class CustomerOrderController implements CustomerOrderApi {
 
     @Override
     public ResponseEntity<List<CustomerOrderDetailSummaryDTO>> getCustomerOrderDetailByOrderId(UUID orderId) {
-        List<CustomerOrderDetail> customerOrderDetailList = this.customerOrderDetailService.findByCustomerOrder(orderId);
+        List<CustomerOrderDetail> customerOrderDetailList = this.customerOrderDetailService.getByCustomerOrder(orderId);
         List<CustomerOrderDetailSummaryDTO> summaryDTOList = customerOrderDetailList
                 .stream()
                 .map(CustomerOrderDetailMapper::toDomainEntity)
