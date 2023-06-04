@@ -4,8 +4,10 @@ import br.com.arcasoftware.comercialapi.application.repository.model.CustomerDat
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
 public interface CustomerDataRepository extends JpaRepository<CustomerData, UUID> {
+    Optional<CustomerData> findByCnpjEmpresaAndCodcli(String cnpjEmpresa, String codcli);
 }

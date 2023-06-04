@@ -9,6 +9,7 @@ import br.com.arcasoftware.customerapi.model.CustomerCreditDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -21,8 +22,13 @@ public class CustomerCreditService {
         this.customerCreditRepository = customerCreditRepository;
     }
 
-    public CustomerCredit save(CustomerCredit customerCredit) {
-        return this.customerCreditRepository.save(customerCredit);
+    public CustomerCredit save(CustomerCredit customer) {
+        List<CustomerCreditDTO> customerDataDbList = this.getByCnpjEmpresaAndCodcli(customer.getCnpjEmpresa(), customer.getCodcli());
+        if (!customerDataDbList.isEmpty()) {
+            Optional<CustomerCreditDTO> creditDTO = customerDataDbList.stream().filter(it -> it.getDtecde().equals(customer.getDtecde()) && it.getSeqcde().equals(customer.getSeqcde())).findFirst();
+            creditDTO.ifPresent(data -> customer.setId(creditDTO.get().getId()));
+        }
+        return this.customerCreditRepository.save(customer);
     }
 
     public List<CustomerCreditDTO> getAll() {

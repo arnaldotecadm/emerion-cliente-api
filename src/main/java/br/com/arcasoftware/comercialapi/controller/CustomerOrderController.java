@@ -1,5 +1,7 @@
 package br.com.arcasoftware.comercialapi.controller;
 
+import br.com.arcasoftware.comercialapi.application.enums.ValidationEnum;
+import br.com.arcasoftware.comercialapi.application.exception.ValidationException;
 import br.com.arcasoftware.comercialapi.application.repository.model.CustomerData;
 import br.com.arcasoftware.comercialapi.application.repository.model.CustomerOrder;
 import br.com.arcasoftware.comercialapi.application.repository.model.CustomerOrderDetail;
@@ -126,7 +128,10 @@ public class CustomerOrderController implements CustomerOrderApi {
 
     @Override
     public ResponseEntity<CustomerOrderDetailSummaryDTO> saveCustomerOrderDetail(CustomerOrderDetailSummaryDTO customerOrderDetailSummaryDTO) {
-        CustomerOrder customerOrder = customerOrderService.getAllByCnpjEmpresaAndNumres(customerOrderDetailSummaryDTO.getCnpjEmpresa(), customerOrderDetailSummaryDTO.getNumres());
+        CustomerOrder customerOrder = customerOrderService.getAllByCnpjEmpresaAndNumres(
+                        customerOrderDetailSummaryDTO.getCnpjEmpresa(),
+                        customerOrderDetailSummaryDTO.getNumres())
+                .orElseThrow(() -> new ValidationException(ValidationEnum.ORDER_NOT_FOUND));
         CustomerOrderDetail customerOrderDetail = CustomerOrderDetailMapper.toDatabaseEntity(customerOrderDetailSummaryDTO);
         customerOrderDetail.setCustomerOrder(customerOrder.getId());
         CustomerOrderDetail orderDetail = this.customerOrderDetailService.save(customerOrderDetail);

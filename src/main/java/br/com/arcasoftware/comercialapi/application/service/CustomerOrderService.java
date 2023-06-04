@@ -3,10 +3,12 @@ package br.com.arcasoftware.comercialapi.application.service;
 import br.com.arcasoftware.comercialapi.application.enums.ValidationEnum;
 import br.com.arcasoftware.comercialapi.application.exception.ValidationException;
 import br.com.arcasoftware.comercialapi.application.repository.CustomerOrderRepository;
+import br.com.arcasoftware.comercialapi.application.repository.model.CustomerData;
 import br.com.arcasoftware.comercialapi.application.repository.model.CustomerOrder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -19,6 +21,8 @@ public class CustomerOrderService {
     }
 
     public CustomerOrder save(CustomerOrder customerOrder) {
+        Optional<CustomerOrder> customerDataDb = this.getAllByCnpjEmpresaAndNumres(customerOrder.getCnpjEmpresa(), customerOrder.getNumres());
+        customerDataDb.ifPresent(data -> customerOrder.setId(data.getId()));
         return this.customerOrderRepository.save(customerOrder);
     }
 
@@ -34,7 +38,7 @@ public class CustomerOrderService {
         return this.customerOrderRepository.findByCnpjEmpresaAndCodcli(cnpjEmprsa, codcli);
     }
 
-    public CustomerOrder getAllByCnpjEmpresaAndNumres(String cnpjEmpresa, String numres) {
-        return this.customerOrderRepository.findByCnpjEmpresaAndNumres(cnpjEmpresa, numres).orElseThrow(() -> new ValidationException(ValidationEnum.ORDER_NOT_FOUND));
+    public Optional<CustomerOrder> getAllByCnpjEmpresaAndNumres(String cnpjEmpresa, String numres) {
+        return this.customerOrderRepository.findByCnpjEmpresaAndNumres(cnpjEmpresa, numres);
     }
 }

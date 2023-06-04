@@ -1,5 +1,6 @@
 package br.com.arcasoftware.comercialapi.controller;
 
+import br.com.arcasoftware.comercialapi.application.enums.ValidationEnum;
 import br.com.arcasoftware.comercialapi.application.exception.ValidationException;
 import br.com.arcasoftware.comercialapi.application.repository.model.CustomerOrder;
 import br.com.arcasoftware.comercialapi.application.repository.model.CustomerOrderDetail;
@@ -53,7 +54,8 @@ public class PedResController {
             /***
              * TODO CNPJEMPRESA is HARD-CODED here
              */
-            CustomerOrder customerOrder = this.customerOrderService.getAllByCnpjEmpresaAndNumres("03089573000121", numres.toString());
+            CustomerOrder customerOrder = this.customerOrderService.getAllByCnpjEmpresaAndNumres("03089573000121", numres.toString())
+                    .orElseThrow(() -> new ValidationException(ValidationEnum.ORDER_NOT_FOUND));
             List<CustomerOrderDetail> orderDetailList = this.customerOrderDetailService.getByCustomerOrder(customerOrder.getId());
 
             ByteArrayOutputStream exportReport = reportService.impressaoPedido(Collections.singletonList(new ReportFull(customerOrder, orderDetailList)));

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -31,8 +32,13 @@ public class CustomerAddressService {
         return customerAddressListDb;
     }
 
-    public CustomerAddress save(CustomerAddress customerAddress) {
-        return this.customerAddressRepository.save(customerAddress);
+    public CustomerAddress save(CustomerAddress customer) {
+        List<CustomerAddressResponseDTO> customerDataDbList = this.getByCnpjEmpresaAndCodcli(customer.getCnpjEmpresa(), customer.getCodcli());
+        if (!customerDataDbList.isEmpty()) {
+            Optional<CustomerAddressResponseDTO> responseDTO = customerDataDbList.stream().filter(i -> i.getTipo().equals(customer.getTipo())).findFirst();
+            responseDTO.ifPresent(customerAddressResponseDTO -> customer.setId(customerAddressResponseDTO.getId()));
+        }
+        return this.customerAddressRepository.save(customer);
     }
 
     public List<CustomerAddressResponseDTO> getAll() {
