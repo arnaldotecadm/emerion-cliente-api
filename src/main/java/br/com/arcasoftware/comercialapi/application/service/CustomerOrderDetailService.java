@@ -21,7 +21,7 @@ public class CustomerOrderDetailService {
         List<CustomerOrderDetail> customerOrderDetailList = this.getByCnpjEmpresaAndNumres(customerOrderDetail.getCnpjEmpresa(), customerOrderDetail.getNumres());
         if (!customerOrderDetailList.isEmpty()) {
             Optional<CustomerOrderDetail> orderDetail = customerOrderDetailList.stream().filter(it ->
-                    it.getDesre2().equalsIgnoreCase(customerOrderDetail.getDesre2()) &&
+                    it.getProduto().equalsIgnoreCase(customerOrderDetail.getProduto()) &&
                             it.getNumres().equals(customerOrderDetail.getNumres())
             ).findFirst();
             orderDetail.ifPresent(data -> customerOrderDetail.setId(orderDetail.get().getId()));

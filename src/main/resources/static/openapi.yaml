@@ -599,6 +599,8 @@ components:
           type: string
         numres:
           type: string
+        produto:
+          type: string
         desre2:
           type: string
         vlqre2:
