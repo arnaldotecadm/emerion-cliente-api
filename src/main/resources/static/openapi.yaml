@@ -612,6 +612,8 @@ components:
           type: string
         numres:
           type: string
+        nronfe:
+          type: string
         dteres:
           $ref: "#/components/schemas/Instant"
         sitres:
