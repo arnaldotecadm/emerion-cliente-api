@@ -23,6 +23,7 @@ public class CustomerOrder extends BaseEntityV2 {
     private String numres;
     private Instant dteres;
     private String sitres;
+    private String nronfe;
     private Double totger;
     private Double totipi;
     private Double totsub;
