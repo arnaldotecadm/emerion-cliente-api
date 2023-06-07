@@ -17,7 +17,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Table(
         name = "customer_order_detail",
-        indexes = @Index(name = "customer_order_codcli", columnList = "codcli"))
+        indexes = @Index(name = "customer_order_detail_codcli", columnList = "codcli"))
 public class CustomerOrderDetail extends BaseEntityV2 {
     private UUID customerOrder;
     private String numres;

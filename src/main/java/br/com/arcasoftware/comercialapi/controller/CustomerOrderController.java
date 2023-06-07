@@ -8,6 +8,7 @@ import br.com.arcasoftware.comercialapi.application.repository.model.CustomerOrd
 import br.com.arcasoftware.comercialapi.application.service.CustomerDataService;
 import br.com.arcasoftware.comercialapi.application.service.CustomerOrderDetailService;
 import br.com.arcasoftware.comercialapi.application.service.CustomerOrderService;
+import br.com.arcasoftware.comercialapi.application.service.S3ClientService;
 import br.com.arcasoftware.comercialapi.mapper.CustomerOrderDetailMapper;
 import br.com.arcasoftware.comercialapi.mapper.CustomerOrderMapper;
 import br.com.arcasoftware.comercialapi.mapper.CustomerOrderReportMapper;
@@ -20,6 +21,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,14 +35,17 @@ public class CustomerOrderController implements CustomerOrderApi {
     private final CustomerOrderService customerOrderService;
     private final CustomerDataService customerDataService;
     private final CustomerOrderDetailService customerOrderDetailService;
+    private final S3ClientService s3ClientService;
 
     @Autowired
     public CustomerOrderController(CustomerOrderService customerOrderService,
                                    CustomerDataService customerDataService,
-                                   CustomerOrderDetailService customerOrderDetailService) {
+                                   CustomerOrderDetailService customerOrderDetailService,
+                                   S3ClientService s3ClientService) {
         this.customerOrderService = customerOrderService;
         this.customerDataService = customerDataService;
         this.customerOrderDetailService = customerOrderDetailService;
+        this.s3ClientService = s3ClientService;
     }
 
     @Override
@@ -76,6 +81,18 @@ public class CustomerOrderController implements CustomerOrderApi {
         CustomerOrder customerOrder = CustomerOrderMapper.toDatabaseEntity(customerOrderHeaderDTO);
         CustomerOrder order = this.customerOrderService.save(customerOrder);
         return ResponseEntity.status(HttpStatus.CREATED).body(CustomerOrderMapper.toDomainEntity(order));
+    }
+
+    @Override
+    public ResponseEntity<String> saveCustomerOrderNFeDanfe(String cnpjEmpresa, String codcli, String numres, MultipartFile nfe) {
+        s3ClientService.saveNfeDanfeFile(cnpjEmpresa, codcli, nfe);
+        return ResponseEntity.ok("NFe Danfe has successfully been saved");
+    }
+
+    @Override
+    public ResponseEntity<String> saveCustomerOrderNFeXml(String cnpjEmpresa, String codcli, String numres, MultipartFile nfe) {
+        s3ClientService.saveNfeXmlFile(cnpjEmpresa, codcli, nfe);
+        return ResponseEntity.ok("NFe XML has successfully been saved");
     }
 
     @Override
