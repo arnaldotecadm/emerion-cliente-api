@@ -505,38 +505,55 @@ components:
           $ref: "#/components/schemas/Identifier"
         cnpjEmpresa:
           type: string
+          description: CNPJ da empresa
         codcli:
           type: string
+          description: Código interno do cliente
         nomcli:
           type: string
+          description: Nome do cliente
         apecli:
           type: string
+          description: Apelido/Nome Fantasia do cliente
         cgccli:
           type: string
+          description: RG/CPF/CNPJ do cliente
         inscli:
           type: string
+          description: Inscricao Estadual do Cliente
         nomregtrib:
           type: string
+          description: Nome do Regime Tributário do Cliente
         clidev:
           type: string
+          description: Crédito por devolução que o cliente possa ter
         cifcli:
           type: string
+          description: Cidade
         uffcli:
           type: string
+          description: UF
         codven:
           type: string
+          description: Código do Vendedor atrelado ao cliente
         cnae:
           type: string
+          description: Classificação Nacional de Atividades Economicas
         indicEstrangeiro:
           type: string
+          description: Indicação se o Cliente é estrangeiro ou não
         tipoIndicacaoIe:
           type: string
+          description: Classificação do Tipo de Inscrição estadual
         inscMunicipal:
           type: string
+          description: Inscrição Municipal
         obscli:
           type: string
+          description: Observações sobre o cliente
         indicIe:
           type: integer
+          description: Inscrição estadual
     CustomerCreditDTOList:
       type: array
       items:
@@ -548,37 +565,57 @@ components:
           $ref: "#/components/schemas/Identifier"
         cnpjEmpresa:
           type: string
+          description: CNPJ da empresa
         codcli:
           type: string
+          description: Código interno do cliente
         seqcde:
           type: string
+          description: sequencia unica do credito por devolucao
         dtecde:
-          $ref: "#/components/schemas/Instant"
+          description: data do credito
+          type: string
+          format: date-time
         tipo:
           type: string
+          description: tipo do credito Entrada/Saida
         valor:
-          $ref: "#/components/schemas/Double"
+          type: number
+          format: double
+          description: valor utilizado
         usacde:
-          $ref: "#/components/schemas/Double"
+          type: number
+          format: double
+          description: valor utilizado
         valcde:
-          $ref: "#/components/schemas/Double"
+          type: number
+          format: double
+          description: valor disponivel
         sldcde:
-          $ref: "#/components/schemas/Double"
+          type: number
+          format: double
+          description: valor disponivel
         dteped:
           type: string
+          description: data da operacao
         obscde:
           type: string
+          description: observações
         sitcde:
           type: string
+          description: situação do credito Utilizado/Novo/Etc
     CustomerAddressDTO:
       type: object
       properties:
         cnpjEmpresa:
           type: string
+          description: CNPJ da empresa
         codcli:
           type: string
+          description: Código interno do cliente
         addressList:
           type: array
+          description: Lista de endereços
           items:
             $ref: "#/components/schemas/CustomerAddressDetailDTO"
     CustomerAddressDetailDTO:
@@ -588,26 +625,37 @@ components:
           $ref: "#/components/schemas/Identifier"
         tipo:
           type: string
+          description: tipo de endereço
         cefcli:
           type: string
+          description: CEP
         tefcli:
           type: string
+          description: Telefone
         enfcli:
           type: string
+          description: endereço
         nrfcli:
           type: string
+          description: numero
         rffcli:
           type: string
+          description: rua
         bafcli:
           type: string
+          description: bairro
         cifcli:
           type: string
+          description: cidade
         uffcli:
           type: string
+          description: uf
         pt1cli:
           type: string
+          description: DDD
         fo1cli:
           type: string
+          description: telefone
         cofcli:
           type: string
         pc1cli:
