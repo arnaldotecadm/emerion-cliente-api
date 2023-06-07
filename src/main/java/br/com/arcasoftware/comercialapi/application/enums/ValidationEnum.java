@@ -10,7 +10,8 @@ public enum ValidationEnum {
     ADDRESS_NOT_FOUND(HttpStatus.NOT_FOUND, "Credit not found!"),
     ORDER_NOT_FOUND(HttpStatus.NOT_FOUND, "Credit not found!"),
     NFE_DANFE_NAME_INVALID_FORMAT(HttpStatus.BAD_REQUEST, "Invalid Danfe name format. Please consider using the Danfe's Access Key as its file name"),
-    INVALID_FILE_FORMAT(HttpStatus.NOT_FOUND, "Wrong file format");
+    INVALID_FILE_FORMAT(HttpStatus.NOT_FOUND, "Wrong file format"),
+    FILE_NOT_FOUND_AT_S3(HttpStatus.NOT_FOUND, "File is not yet available for downloading.");
 
     private final HttpStatus httpStatus;
     private final String description;

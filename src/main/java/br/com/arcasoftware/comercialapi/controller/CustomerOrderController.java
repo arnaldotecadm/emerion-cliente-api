@@ -17,7 +17,9 @@ import br.com.arcasoftware.customerapi.model.CustomerOrderDetailSummaryDTO;
 import br.com.arcasoftware.customerapi.model.CustomerOrderHeaderDTO;
 import br.com.arcasoftware.customerapi.model.CustomerOrderReportDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
@@ -153,5 +155,17 @@ public class CustomerOrderController implements CustomerOrderApi {
         customerOrderDetail.setCustomerOrder(customerOrder.getId());
         CustomerOrderDetail orderDetail = this.customerOrderDetailService.save(customerOrderDetail);
         return ResponseEntity.status(HttpStatus.CREATED).body(CustomerOrderDetailMapper.toDomainEntity(orderDetail));
+    }
+
+    @Override
+    public ResponseEntity<byte[]> getXmlForTheOrder(String cnpjEmpresa, String cliente, String nronfe) {
+        byte[] xmlFileFromS3 = this.s3ClientService.getXMLFileFromS3(cnpjEmpresa, cliente, nronfe);
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Content-Disposition", String.format("attachment; filename=%s.xml", nronfe));
+        return ResponseEntity.ok()
+                .headers(headers)
+                .contentLength(xmlFileFromS3.length)
+                .contentType(MediaType.APPLICATION_XML)
+                .body(xmlFileFromS3);
     }
 }
