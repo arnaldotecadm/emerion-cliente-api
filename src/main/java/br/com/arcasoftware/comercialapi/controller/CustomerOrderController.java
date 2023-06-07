@@ -168,4 +168,16 @@ public class CustomerOrderController implements CustomerOrderApi {
                 .contentType(MediaType.APPLICATION_XML)
                 .body(xmlFileFromS3);
     }
+
+    @Override
+    public ResponseEntity<byte[]> getDanfeForTheOrder(String cnpjEmpresa, String cliente, String nronfe) {
+        byte[] xmlFileFromS3 = this.s3ClientService.getDanfeFileFromS3(cnpjEmpresa, cliente, nronfe);
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Content-Disposition", String.format("attachment; filename=%s.pdf", nronfe));
+        return ResponseEntity.ok()
+                .headers(headers)
+                .contentLength(xmlFileFromS3.length)
+                .contentType(MediaType.APPLICATION_XML)
+                .body(xmlFileFromS3);
+    }
 }

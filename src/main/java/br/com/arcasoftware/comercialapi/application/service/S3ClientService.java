@@ -55,6 +55,11 @@ public class S3ClientService {
         return getFileFromS3(fileName);
     }
 
+    public byte[] getDanfeFileFromS3(String cnpjEmpresa, String codcli, String nronfe) {
+        String fileName = String.format("%s/%s/%s/%s.pdf", "pdf", cnpjEmpresa, codcli, nronfe);
+        return getFileFromS3(fileName);
+    }
+
     public byte[] getFileFromS3(String fileName) {
         this.verifyIfFileExistsInS3(fileName);
         S3Object s3Object = this.amazonS3.getObject(BUCKET_NAME, fileName);
