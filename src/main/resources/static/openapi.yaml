@@ -442,6 +442,40 @@ paths:
                 type: string
                 format: byte
 
+  /customer-order/pdf/{cnpjEmpresa}/{cliente}/{nronfe}:
+    get:
+      tags:
+        - CustomerOrder
+      description: get the XML file from a given order
+      operationId: getDanfeForTheOrder
+      parameters:
+        - name: cnpjEmpresa
+          in: path
+          description: cnpj empresa
+          required: true
+          schema:
+            type: string
+        - name: cliente
+          in: path
+          description: user friendly cliente code
+          required: true
+          schema:
+            type: string
+        - name: nronfe
+          in: path
+          description: nronfe
+          required: true
+          schema:
+            type: string
+      responses:
+        201:
+          description: Customer order detail successfully created
+          content:
+            application/json:
+              schema:
+                type: string
+                format: byte
+
 components:
   schemas:
     ### Complex types
