@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Service
 public class S3ClientService {
@@ -20,19 +18,18 @@ public class S3ClientService {
         this.amazonS3 = amazonS3;
     }
 
-    public void saveNfeDanfeFile(String cnpjEmpresa, String codcli, MultipartFile nfe) {
-        saveFileToS3(cnpjEmpresa, codcli, nfe, "pdf");
+    public void saveNfeDanfeFile(String cnpjEmpresa, String codcli, String nronfe, MultipartFile nfe) {
+        saveFileToS3(cnpjEmpresa, codcli, nronfe, nfe, "pdf");
     }
 
-    public void saveNfeXmlFile(String cnpjEmpresa, String codcli, MultipartFile nfe) {
-        saveFileToS3(cnpjEmpresa, codcli, nfe, "xml");
+    public void saveNfeXmlFile(String cnpjEmpresa, String codcli, String nronfe, MultipartFile nfe) {
+        saveFileToS3(cnpjEmpresa, codcli, nronfe, nfe, "xml");
     }
 
-    public void saveFileToS3(String cnpjEmpresa, String codcli, MultipartFile nfe, String fileExtension) {
+    public void saveFileToS3(String cnpjEmpresa, String codcli, String nronfe, MultipartFile nfe, String fileExtension) {
         String fileName = nfe.getOriginalFilename();
         validateFileExtension(fileName, fileExtension);
-        fileName = getNFeAccessKey(fileName);
-        String finalFileName = String.format("%s/%s/%s/%s.%s", fileExtension, cnpjEmpresa, codcli, fileName, fileExtension);
+        String finalFileName = String.format("%s/%s/%s/%s.%s", fileExtension, cnpjEmpresa, codcli, nronfe, fileExtension);
         saveFileToS3(nfe, finalFileName);
     }
 
@@ -48,14 +45,6 @@ public class S3ClientService {
         }
     }
 
-    private String getNFeAccessKey(String fileName) {
-        Pattern p = Pattern.compile("(\\d{44})");
-        Matcher m = p.matcher(fileName);
-        if (!m.find()) {
-            throw new ValidationException(ValidationEnum.NFE_DANFE_NAME_INVALID_FORMAT);
-        }
-        return m.group(0);
-    }
 
     private void validateFileExtension(String fileName, String extension) {
         if (!fileName.endsWith(extension)) {

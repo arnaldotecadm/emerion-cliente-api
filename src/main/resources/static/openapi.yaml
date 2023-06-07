@@ -790,7 +790,7 @@ components:
           type: string
         codcli:
           type: string
-        numres:
+        nronfe:
           type: string
         nfe:
           $ref: "#/components/schemas/File"

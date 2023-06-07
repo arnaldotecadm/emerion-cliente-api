@@ -84,14 +84,14 @@ public class CustomerOrderController implements CustomerOrderApi {
     }
 
     @Override
-    public ResponseEntity<String> saveCustomerOrderNFeDanfe(String cnpjEmpresa, String codcli, String numres, MultipartFile nfe) {
-        s3ClientService.saveNfeDanfeFile(cnpjEmpresa, codcli, nfe);
+    public ResponseEntity<String> saveCustomerOrderNFeDanfe(String cnpjEmpresa, String codcli, String nronfe, MultipartFile nfe) {
+        s3ClientService.saveNfeDanfeFile(cnpjEmpresa, codcli, nronfe, nfe);
         return ResponseEntity.ok("NFe Danfe has successfully been saved");
     }
 
     @Override
-    public ResponseEntity<String> saveCustomerOrderNFeXml(String cnpjEmpresa, String codcli, String numres, MultipartFile nfe) {
-        s3ClientService.saveNfeXmlFile(cnpjEmpresa, codcli, nfe);
+    public ResponseEntity<String> saveCustomerOrderNFeXml(String cnpjEmpresa, String codcli, String nronfe, MultipartFile nfe) {
+        s3ClientService.saveNfeXmlFile(cnpjEmpresa, codcli, nronfe, nfe);
         return ResponseEntity.ok("NFe XML has successfully been saved");
     }
 
