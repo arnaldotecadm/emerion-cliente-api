@@ -664,6 +664,8 @@ components:
           type: string
         codcli:
           type: string
+        nronfe:
+          type: string
         nomemp:
           type: string
         end1:
